@@ -63,14 +63,22 @@ splitBASbasedOnInput <- function(lines) {
 }
 
 
-combinePlaystatement <- function(i, header, statement) {
+combinePlaystatement <- function(i, header, statement) {  # i <- 19
   all <- statement[header$startLine[i]:header$endLine[i]]
-  all <- gsub(".*PLAY ", "", all) %>%
+  all <- gsub(":PRINT \"[^\"]*\"", "", all) %>%
+         gsub("LOCATE [0-9]*,[0-9]*", "", .) %>%
+         gsub(".*PLAY ", "", .) %>%
           gsub('"', "", .) %>%
           gsub(':GOTO [0-9]*', "", .) %>%
           trimws() %>%
           gsub("\\+", "#", .)   # BASIC allows both a "+" or a "#" as a sharp indicator
-  paste0(all, collapse=" ")
+
+  # make sure we have space padding between all notes....
+  comb <- paste0(all, collapse=" ") %>%
+    gsub("([a-g])", " \\1", .) %>%    # put a space before each note
+    gsub("  ", " ", .) %>%            # remove double spaces
+    trimws()
+  comb
 }
 
 
@@ -148,7 +156,7 @@ dofile <- function(fn, mainvar="A") {
 
   DoSong <- function(i) {
     BetterTitle <- paste0(PROPERNAME[[fn]], " ", gsub("a-z", "", all$Nr[i]))
-    message(BetterTitle)
+    message(i, " = ", BetterTitle)
     j <- as.integer(gsub("a-z", "", all$Nr[i]))
     padzero <- 2 - floor(log(j, base=10))
     ABC <- Play2ABC(all$playstatements[i], BetterTitle, all$FirstLine[i])
