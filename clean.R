@@ -148,6 +148,7 @@ dofile <- function(fn, mainvar="A") {
 
   DoSong <- function(i) {
     BetterTitle <- paste0(PROPERNAME[[fn]], " ", gsub("a-z", "", all$Nr[i]))
+    message(BetterTitle)
     j <- as.integer(gsub("a-z", "", all$Nr[i]))
     padzero <- 2 - floor(log(j, base=10))
     ABC <- Play2ABC(all$playstatements[i], BetterTitle, all$FirstLine[i])
@@ -158,8 +159,8 @@ dofile <- function(fn, mainvar="A") {
   }
 
   # saveFile
-  # sapply(seq.int(nrow(all)), DoSong)
-  DoSong(2)
+  sapply(seq.int(nrow(all)), DoSong)
+  # DoSong(3)
 
 }
 
@@ -280,11 +281,16 @@ Play2ABC <- function(play, title, subtitle=NULL) {
   changeColour <- function(notes) {  # notes <- KEYS$D
     y <- splitNoteColor(notes)
     noteColour[y$notes] <<- y$col
-    print(noteColour)
+    # print(noteColour)
   }
 
 
   findkey <- function(play) {
+    if (FALSE) {
+      play <- all$playstatements[3]
+    }
+    play <- gsub("\\.", "", play) %>%
+             gsub("\\+", "#", .)
     f <- table(strsplit(play, " ")[[1]])
     isNote <- regexpr("[a-g]", names(f), ignore.case = TRUE)>0
     f <- f[isNote]
@@ -293,16 +299,36 @@ Play2ABC <- function(play, title, subtitle=NULL) {
     allcomb <- outer(NOTES, TYPES, FUN = paste0)
     rownames(allcomb) <- NOTES
     colnames(allcomb) <- TYPES
-    hascomb <- allcomb==TRUE  # copy the structure
-    hascomb[] <- gsub("=", "", allcomb) %in% tolower(names(f))
+    hascomb <- (allcomb==TRUE)*0  # copy the structure
+    m <- match(tolower(names(f)), gsub("=", "", allcomb))
+    hascomb[m] <- unname(f)
+
+    # find the most prominent note
+    mostprominent <- apply(hascomb, 1, FUN = function(x) {TYPES[which(max(x)==x)[1]]})
+
 
     # compare KEYS against hascomb
-
-
-    if (all(hascomb[c("c", "f"), "#"]==TRUE & !hascomb[c("c", "f"), "="])) {
-      "D"    # D key
+    if (mostprominent['f']=="#") {
+      if (mostprominent['c']=="#") {
+        if (mostprominent['g']=="#") {
+          if (mostprominent['d']=="#") {
+            if (mostprominent['b']=="#") {
+              "B"
+            } else {
+              "E"
+            }
+          } else {
+            "A"
+          }
+        } else {
+          "D"
+        }
+      } else {
+        "G"
+      }
     } else {
-      "C"   # the default, nothing
+      # molle
+      "C"
     }
   }
   K <- findkey(play)
