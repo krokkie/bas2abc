@@ -1,0 +1,18 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 5
+C:O Heer, neem my gebed ter ore! ...(11)
+L:1/4
+M:C|
+K:C
+Q:1/2=100
+yy D2 A B c2 c2 d c B2 A2 z2
+%w:words come here
+yyyy d2 d d c B A2 F2 E2 z2
+%w:words come here
+yyyy A2 A A ^G A c2 B2 A2 z2
+%w:words come here
+yyyy F2 F =G A2 A2 _B A G2 F2 z2
+%w:words come here
+yyyy A2 G F E2 D4 yy |]
+%w:words come here
