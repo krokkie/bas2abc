@@ -202,6 +202,11 @@ Play2ABC <- function(play, title, subtitle=NULL) {
     } else {
       stop("Cannot handle Octave ", O, " for note ", x)
     }
+    if (regexpr("\\.", x)>0) {
+      L <- L / 2    # only applies to this note, only a local variable L.
+      x <- gsub("\\.", "", x)
+    }
+
     newnote <- paste0(fx(x), post)
 
     # Basic music has "#" for sharp, and "-" for flat.
@@ -217,10 +222,6 @@ Play2ABC <- function(play, title, subtitle=NULL) {
       newnote <- fixSharpFlat(newnote)
     }
 
-    if (regexpr("\\.", newnote)>0) {
-      L <- L / 2    # only applies to this note, only a local variable L.
-      newnote <- gsub("\\.", "", newnote)
-    }
     if (L==2) {
       newnote <- paste0(newnote, "4")
     } else if (L==4) {

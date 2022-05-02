@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 1
+C:Welsalig hy wat op die spoor nie gaan ...(4)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy A2 B2 A2 F2 A2 G F G2 E2 D2 z2
+%w:words come here
+yyyy D F2 G2 A2 A2 B A F ^G A2 z2
+%w:words come here
+yyyy A2 A =G F2 F2 F E F A G2 F2 z2
+%w:words come here
+yyyy F2 A G F2 B2 B B A G F2 E2 z2
+%w:words come here
+yyyy F A2 A2 B2 d2 c B A2 B2 A2 z2
+%w:words come here
+yyyy A2 B2 A2 F2 A2 G F G2 E2 D2 yy |]
+%w:words come here
