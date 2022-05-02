@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 24
+C:Gese‰nd sy bo alle dinge ... (7)
+L:1/4
+M:C|
+K:F
+Q:1/2=100
+yy C2 F G A c B A G2 F2 G2 G A G E F2 D2 C2 z2
+%w:words come here
+yyyy C2 F G A c B A G2 F2 G2 G A G E F2 D2 C2 z2
+%w:words come here
+yyyy C2 F G A A d c =B2 c2 c2 F2 G2 A c _B A G2 z2
+%w:words come here
+yyyy G2 G2 A2 G E F E D2 C2 C2 F G A B G2 G2 F3 yy |]
+%w:words come here

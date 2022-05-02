@@ -1,0 +1,24 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 37
+C:Toe sien ek soos 'n see van glas, ... (3)
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy E G2 A2 G c c B c2 yyyy
+%w:words come here
+z c B A d2 c2 B B A2 yyyy
+%w:words come here
+z E G2 A2 G c c B c2 yyyy
+%w:words come here
+z c B A d2 c2 B B A2 yyyy
+%w:words come here
+z A A A B2 A G2 F G2 yyyy
+%w:words come here
+z G A B c B A A B2 yyyy
+%w:words come here
+z E G2 A2 G c c B c2 yyyy
+%w:words come here
+z c B A d2 c2 B B A3 yy |]
+%w:words come here

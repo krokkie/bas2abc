@@ -1,0 +1,14 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 23
+C:Toe sien ek: alles was verby - ... (4)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy D2 F2 F A2 A G F E2 yyyy
+%w:words come here
+z A B c d c B B A2 D2 F2 F A2 A G F E2 yyyy
+%w:words come here
+z A B c d c B B A2 A2 d2 c B2 A G F E2 A2 G2 F E2 G F2 E2 D3 yy |]
+%w:words come here

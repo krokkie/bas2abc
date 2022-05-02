@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 50
+C:O grote Christus, eewge Lig, ... (7)
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy E2 G E D E G F E2 z2
+%w:words come here
+yyyy G2 A A B G A A B2 z2
+%w:words come here
+yyyy B2 c B d B A A G2 z2
+%w:words come here
+yyyy B2 G A G F E ^D E3 yy |]
+%w:words come here

@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 1
+C:Ek wil die hoogste Heer ... (6)
+L:1/4
+M:C|
+K:F
+Q:1/2=100
+yy c2 d c B2 A2 G2 B2 A F G G F2 yyyy
+%w:words come here
+z F2 c c d c B2 A2 c2 A B A G F2 yyyy
+%w:words come here
+z F2 D E F D C2 yyyy
+%w:words come here
+z F2 G A B A G2 F3 yy |]
+%w:words come here

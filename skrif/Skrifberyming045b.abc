@@ -1,0 +1,22 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 45b
+C:Hy het my die stad getoon, ... (12) - 2. Tweede wysie
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy G2 G ( G F G) ( A G A) B2 yyyy
+%w:words come here
+z/ B2 B ( B c d) ( d c B) B A yyyy
+%w:words come here
+z/ G2 G ( G F G) ( A G A) B2 yyyy
+%w:words come here
+z/ B2 B ( B c d) ( d c B) B A yyyy
+%w:words come here
+z/ A2 B ( c B A) B2 c d2 yyyy
+%w:words come here
+z/ e2 e ( d c B) ( c B A) G3 yyyy
+%w:words come here
+z/ yy |]
+%w:words come here

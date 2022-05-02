@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 39
+C:Dit sˆ die Eerste en Laaste, Hy ... (5)
+L:1/4
+M:C|
+K:C
+Q:1/2=100
+yy D A A E G F E D2 yyyy
+%w:words come here
+z/ D A B c B A ^G A2 yyyy
+%w:words come here
+z/ A d B c A =G F E2 yyyy
+%w:words come here
+z/ E D A E G F E D3 yy |]
+%w:words come here

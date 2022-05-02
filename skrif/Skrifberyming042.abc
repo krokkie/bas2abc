@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 42
+C:Ek wat die sewe Geeste stuur ... (5)
+L:1/4
+M:C|
+K:F
+Q:1/2=100
+yy G2 G ^F G A B A G2 yyyy
+%w:words come here
+z/ G A A d A B B A2 yyyy
+%w:words come here
+z d2 c B A c B A G2 yyyy
+%w:words come here
+z d2 c B A c B A G2 yyyy
+%w:words come here
+z B2 A G =F D F G A2 yyyy
+%w:words come here
+z G2 A A d c B2 A2 G3 yy |]
+%w:words come here

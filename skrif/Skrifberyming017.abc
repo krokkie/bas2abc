@@ -1,0 +1,14 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 17
+C:Wees nie besorgd nie oor jul lewe, ... (6)
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy D G A _B2 A G2 A F D yyyy
+%w:words come here
+z =F F _E D2 G G2 ^F G3 D G A B2 A G2 A F D yyyy
+%w:words come here
+z =F F E D2 G G2 ^F G3 A B c d2 d c2 B c2 B B A G F2 G G2 F G3 yy |]
+%w:words come here

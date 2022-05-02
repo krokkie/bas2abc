@@ -1,0 +1,18 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 20
+C:Bo 'n strandelose en donker see ... (8)
+L:1/4
+M:C|
+K:F
+Q:1/2=100
+yy F2 F2 G A2 c B B A2 yyyy
+%w:words come here
+z A c2 c G2 A F F E2 yyyy
+%w:words come here
+z F G A B A G2 yyyy
+%w:words come here
+z A F2 G A2 c B B A2 yyyy
+%w:words come here
+z A c2 c G2 A F F E2 C2 F G A2 G2 F3 yy |]
+%w:words come here

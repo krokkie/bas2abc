@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 40
+C:Ek wat die swaard dra, weerskant skerp, ... (7)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy E2 G G F E G A B2 z2
+%w:words come here
+yyyy B2 G B A G F F E2 z2
+%w:words come here
+yyyy B2 d c B A B2 A2 G2 z2
+%w:words come here
+yyyy G2 A A B E G2 F2 E3 yy |]
+%w:words come here

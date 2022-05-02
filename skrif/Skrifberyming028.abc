@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 28
+C:O Vader, in die hemel hoog, ... (4)
+L:1/4
+M:C|
+K:Bb
+Q:1/2=100
+yy G2 G E F G E D C2 z2
+%w:words come here
+yyyy G2 G F B G E F G2 z2
+%w:words come here
+yyyy G2 B c e d c =B c2 z2
+%w:words come here
+yyyy c2 d c _B A G ^F G2 z2
+%w:words come here
+yyyy c2 B A B G G =F E2 z2
+%w:words come here
+yyyy G2 _A G E F E D C4 yy |]
+%w:words come here

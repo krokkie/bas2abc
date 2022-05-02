@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 18
+C:Ek loof U, Vader, groot van mag, ... (8)
+L:1/4
+M:C|
+K:D
+Q:1/2=80
+yy D D A A B B A2 yyyy
+%w:words come here
+z A A d c A B B A2 yyyy
+%w:words come here
+z A d c B A B A F2 z2
+%w:words come here
+yyyy F2 B B A G F2 E2 D3 yy |]
+%w:words come here

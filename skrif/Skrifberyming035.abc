@@ -1,0 +1,24 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 35
+C:O dieptes vol geheimenis ... (3)
+L:1/4
+M:C|
+K:F
+Q:1/2=100
+yy D2 F2 G2 A G B A G2 z2
+%w:words come here
+yyyy A2 c B A G A2 B2 A2 z2
+%w:words come here
+yyyy c2 B A G2 F2 F E F2 z2
+%w:words come here
+yyyy F2 G F E D D ^C D2 z2
+%w:words come here
+yyyy A2 A B =c2 d2 c B A2 z2
+%w:words come here
+yyyy F2 G A B2 A2 G G F2 z2
+%w:words come here
+yyyy A2 G2 E2 F G A G F2 E2 z2
+%w:words come here
+yyyy F2 G F E D F F E2 D3 yy |]
+%w:words come here

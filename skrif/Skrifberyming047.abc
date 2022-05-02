@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Skrifberyming 47
+C:Die Here sal ons se‰n, ... (1)
+L:1/4
+M:C|
+K:F
+Q:1/2=80
+yy c2 A B c d c2 c2 A B G G F2 z2
+%w:words come here
+yyyy F2 c A B A G2 A2 c2 c d c B A2 B2 c F B A G F G2 F2 z2
+%w:words come here
+yyyy D2 F E F2 G2 A2 A2 F G A2 c2 A F B A G2 F2 z2
+%w:words come here
+yyyy D F ( G F) F3 yy |]
+%w:words come here
