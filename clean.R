@@ -22,6 +22,64 @@ iif <- function(cond, trueval, falseval) {
 }
 
 
+splitBASbasedOnInput <- function(lines) {
+  if (FALSE) {
+    lines <- bas[header$startLine[2]:header$endLine[2]]
+  }
+
+  code2 <- unlist(strsplit(lines, ":"))
+  hasPrint <- regexec("PRINT ", code2)>0
+
+  labels <- code2[hasPrint] %>%
+    gsub("PRINT ", "", .) %>%
+    gsub('"', "", .)
+
+  hasInput <- regexec("INPUT ", code2)>0
+  inputVar <- code2[hasInput] %>%
+              substr(., nchar(.), nchar(.))
+  hasIf <- regexec(paste0("IF ",inputVar, "="), code2)>0
+  cond <- code2[hasIf] %>%
+            gsub(paste0(".*IF ",inputVar, "="), "", .) %>%
+            gsub(" THEN ", "\t", .) %>%
+            gsub(" ELSE.*", "", .)
+  x <- strsplit(cond, '\t')
+  header <- as.data.frame(list(Nr=sapply(x, getElement, 1),
+                               FirstLine=labels,
+                               Goto=sapply(x,getElement,2)))
+
+  hasLineNr <- regexec("^[0-9]* ", code2) > 0
+  LineNrs <- gsub(" .*", "", code2)
+  LineNrs[!hasLineNr] <- ""
+
+  header$startLine <- match(header$Goto, LineNrs)
+  hasPlay <- (regexec("PLAY ", code2)>0) * 1
+  countPlays <- rev(cumsum(rev(hasPlay)))
+
+  header$endLine <- header$startLine + countPlays[header$startLine] - countPlays[c(header$startLine[2:nrow(header)] - 1, length(code2))]  - 1
+
+  header$playstatements <- sapply(1:nrow(header), combinePlaystatement, header, code2)
+
+  header
+}
+
+
+combinePlaystatement <- function(i, header, statement) {
+  all <- statement[header$startLine[i]:header$endLine[i]]
+  all <- gsub(".*PLAY ", "", all) %>%
+          gsub('"', "", .) %>%
+          gsub(':GOTO [0-9]*', "", .) %>%
+          trimws() %>%
+          gsub("\\+", "#", .)   # BASIC allows both a "+" or a "#" as a sharp indicator
+  paste0(all, collapse=" ")
+}
+
+
+LINERANGES <- list(
+  "PSALMS.BAS" = 8:157,
+  "SKRIF.BAS" = 4:53
+)
+
+
 dofile <- function(fn, mainvar="A") {
 
   if (FALSE) fn <- "PSALMS.BAS"
@@ -42,7 +100,8 @@ dofile <- function(fn, mainvar="A") {
       gsub("\":GOTO ", "\t", .)
   }
 
-  x <- processheader(statement[8:157], mainvar) %>%
+  headerRange <- LINERANGES[[fn]]
+  x <- processheader(statement[headerRange], mainvar) %>%
          strsplit("\t")
 
   header <- as.data.frame(list(Nr=sapply(x, getElement, 1),
@@ -58,17 +117,49 @@ dofile <- function(fn, mainvar="A") {
 
   header$endLine <- c(header$startLine[2:nrow(header)]- 1, lastSongEndline)
 
-  combinePlaystatement <- function(i) {
-    paste0(statement[header$startLine[i]:header$endLine[i]], collapse=" \n")
-  }
+  header$playstatements <- sapply(1:nrow(header), combinePlaystatement, header, statement)
 
-  header$playstatements <- sapply(1:nrow(header), combinePlaystatement)
   header$hasMultiple <- regexec("INPUT", header$playstatements) > 0
 
-  sum(header$hasMultiple)
+  # sum(header$hasMultiple)
 
-  statement[431:435]
-  tail(header)
+  splitMultiple <- lapply(which(header$hasMultiple), function(i) {
+    code <- bas[header$startLine[i]:header$endLine[i]]
+    split <- splitBASbasedOnInput(code)
+    split$Nr <- paste0(header$Nr[i], letters[1:nrow(split)])
+    split$FirstLine <- paste0(header$FirstLine[i], " - ", split$FirstLine)
+    split
+  })
+
+  header <- header[!header$hasMultiple, ]
+
+  allSplit <- data.table::rbindlist(splitMultiple)
+  header$hasMultiple <- NULL
+  all <- rbind(header, allSplit)
+
+  save(all, file=gsub("BAS", "RData", fn))
+
+  PROPERNAME <- list(
+    `PSALMS.BAS` = "Psalm",
+    `SKRIF.BAS` = "Skrifberyming"
+  )
+
+
+
+  DoSong <- function(i) {
+    BetterTitle <- paste0(PROPERNAME[[fn]], " ", gsub("a-z", "", all$Nr[i]))
+    j <- as.integer(gsub("a-z", "", all$Nr[i]))
+    padzero <- 2 - floor(log(j, base=10))
+    ABC <- Play2ABC(all$playstatements[i], BetterTitle, all$FirstLine[i])
+    outfn <- file.path(gsub('\\.bas', '', tolower(fn)), paste0(PROPERNAME[[fn]], paste0(rep("0", padzero), collapse=""), all$Nr[i], '.abc'))
+    if (!dir.exists(dirn <- dirname(outfn))) dir.create(dirn)
+    writeLines(ABC, outfn)
+    TRUE
+  }
+
+  # saveFile
+  # sapply(seq.int(nrow(all)), DoSong)
+  DoSong(2)
 
 }
 
@@ -126,7 +217,13 @@ Play2ABC <- function(play, title, subtitle=NULL) {
       newnote <- fixSharpFlat(newnote)
     }
 
-    if (L==4) {
+    if (regexpr("\\.", newnote)>0) {
+      L <- L / 2    # only applies to this note, only a local variable L.
+      newnote <- gsub("\\.", "", newnote)
+    }
+    if (L==2) {
+      newnote <- paste0(newnote, "4")
+    } else if (L==4) {
       newnote <- paste0(newnote, "2")
     } else if (L==8) {
       # do nothing, the note is fine as is.
@@ -204,7 +301,7 @@ Play2ABC <- function(play, title, subtitle=NULL) {
     if (all(hascomb[c("c", "f"), "#"]==TRUE & !hascomb[c("c", "f"), "="])) {
       "D"    # D key
     } else {
-
+      "C"   # the default, nothing
     }
   }
   K <- findkey(play)
@@ -232,38 +329,21 @@ Play2ABC <- function(play, title, subtitle=NULL) {
     lines
   )
 #
-  #' Q:1/2=100
-  #' yyy A2 B2 A2 F2 A2 G F G2 E2 D2 yyyy
-  #' w:God ken die pad waar-op sy volk moet gaan;
-  #' z D F2 G2 A2 A2 B A F G A2 z2
-  #' w:sy oog is dit wat hul-le ga-de-slaan
-  #' yyyy A2 A G F2 F2 F E F A G2 F2 z2
-  #' w:en met sy lig hul le-wens-pad be-straal het
-  #' yyyy F2 A G F2 B2 B B A G F2 E2 yyyy
-  #' w:maar son-daars-pad wat van hul weg-ge-daal het\-
-  #' z F A2 A2 B2 d2 c B A2 B2 A2 z2
-  #' w:dit moet ver-gaan on-keer-baar in hul spoed,
-  #' yyyy A2 B2 A2 F2 A2 G F G2 E2 D4 y |]
-  #' w:loop hul op laas 'n af-grond te-ge-moet.
-
-
-  #'
-  #'
-  #'
-  #'
-  #'
-  #'
-
-
   return
 }
 
 
+dofile("PSALMS.BAS")
 
 
-play <- 'o2 l4 t100 mn a b a f# a l8 g f# l4 g e d p4 l8 d l4 f# g a a l8 b a f# g# l4 a p4 a l8 a g l4 f# f# l8 f# e f# a l4 g f# p4 f# l8 a g l4 f# b l8 b b a g l4 f# e p4 l8 f# l4 a a b o3 d l8 c# o2 b l4 a b a p4 a b a f# a l8 g f# l4 g e d'
-title <- "Psalm 1"
-subtitle <- NULL
-res <- Play2ABC(play, title, subtitle)
+if (FALSE) {
+  play <- 'o2 l4 t100 mn a b a f# a l8 g f# l4 g e d p4 l8 d l4 f# g a a l8 b a f# g# l4 a p4 a l8 a g l4 f# f# l8 f# e f# a l4 g f# p4 f# l8 a g l4 f# b l8 b b a g l4 f# e p4 l8 f# l4 a a b o3 d l8 c# o2 b l4 a b a p4 a b a f# a l8 g f# l4 g e d'
+  title <- "Psalm 1"
+  subtitle <- NULL
+  res <- Play2ABC(play, title, subtitle)
 
-writeClipboard(res)
+  writeClipboard(res)
+
+}
+9
+
