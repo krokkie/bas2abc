@@ -86,9 +86,11 @@ Play2ABC <- function(play, title, subtitle=NULL) {
     flat <- regexec('-', x)>0
     if (sharp) {
       x <- paste0('^', gsub('#', '', x))
-    }
-    if (flat) {
+    } else if (flat) {
       x <- paste0('_', gsub('-', '', x))
+    } else {
+      # we are changing the colour of the note, so we need an explict normalize it
+      x <- paste0("=", x)
     }
     x
   }
@@ -114,19 +116,13 @@ Play2ABC <- function(play, title, subtitle=NULL) {
     # Basic music has "#" for sharp, and "-" for flat.
     # We don't need this in ABC, for we have a key defined.
     # ABC notation is "_" for flat, and "^" for sharp, with "=" for natural
-    AutoNotes <- KEYS[[K]]
-    AutoNotesOnly <- gsub('[^a-g]', '', AutoNotes)
 
     # see if this note is affected by the Key or not
-    if (gsub('[^a-g]', '', x) %in% AutoNotesOnly) {
-      if (x %in% AutoNotes) { # it has the same sharp or flat, so we can remove it...
-        newnote <- gsub('#|\\-', '', newnote)  # remove the "#" or "-"
-      } else if (nchar(x)==1) {  # it has no symbol at all, ie.
-        newnote <- paste0('=', newnote)
-      } else {  # the default is 'n sharp, but we have a flat. [or the other way around]
-        newnote <- fixSharpFlat(newnote)
-      }
-    } else {
+    nx <- splitNoteColor(x)
+    if (noteColour[[nx$notes]] == nx$col) { # it has the same sharp or flat, so we can remove it...
+      newnote <- gsub('#|\\-', '', newnote)  # remove the "#" or "-"
+    } else {  # the default is 'n sharp, but we have a flat. [or the other way around]
+      changeColour(x)
       newnote <- fixSharpFlat(newnote)
     }
 
@@ -176,6 +172,19 @@ Play2ABC <- function(play, title, subtitle=NULL) {
     paste0(n, collapse=" ")
   }
 
+  splitNoteColor <- function(x) {
+    res <- list(notes=sub("[^a-g]", "", x),
+                col=gsub("[a-g]", "", x))
+    res$col[res$col==""] <- "="
+    res
+  }
+
+  changeColour <- function(notes) {  # notes <- KEYS$D
+    y <- splitNoteColor(notes)
+    noteColour[y$notes] <<- y$col
+    print(noteColour)
+  }
+
 
   findkey <- function(play) {
     f <- table(strsplit(play, " ")[[1]])
@@ -204,6 +213,8 @@ Play2ABC <- function(play, title, subtitle=NULL) {
   L <- 4  # default note length
   M <- 'n' # music mode (normal vs. legato )
 
+  noteColour <- setNames(rep('=',7), letters[1:7])
+  changeColour(KEYS[[K]])
   notes <- playInstructions(play)
   lines <- strsplit(gsub("\n", "\n%w:words come here\n", notes), "\n")[[1]]
   lines[1] <- paste0('yy ', lines[1])
