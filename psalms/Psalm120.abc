@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 120
+C:As die ho‰ nood by tye ...(4)
+L:1/4
+M:C|
+K:C
+Q:1/2=100
+yy D2 D A2 G _B A G2 F2 z2
+%w:words come here
+yyyy A2 A c2 A d c =B2 A2 z2
+%w:words come here
+yyyy d2 c2 B A A ^G A2 z2
+%w:words come here
+yyyy F2 A _B2 A =G A G2 F2 z2
+%w:words come here
+yyyy A2 A c2 A d c =B2 A2 z2
+%w:words come here
+yyyy F2 A2 G F G2 E2 D3 yy |]
+%w:words come here

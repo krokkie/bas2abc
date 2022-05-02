@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 16
+C:Bewaar my tog, o God, op wie 'k vertrou! ...(5)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy d2 c2 B2 A F A A G G F2 z2
+%w:words come here
+yyyy F2 E D A2 A2 B B c A d2 c2 z2
+%w:words come here
+yyyy d2 d d A2 B2 A G F2 E2 F2 z2
+%w:words come here
+yyyy D2 E2 G2 F B B A B d c2 B2 z2
+%w:words come here
+yyyy F2 G E D2 A2 G F G A B2 A2 z2
+%w:words come here
+yyyy F2 A2 B2 F A B d c B ^A2 B3 yy |]
+%w:words come here

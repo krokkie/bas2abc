@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 90a
+C:U was, o Heer, vanaf die vroegste jare ...(9) - 1. Eerste wysie
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy D2 G2 A2 B2 B2 B B A c B2 A2 z2
+%w:words come here
+yyyy D2 G A B2 c2 B A B c d2 B2 z2
+%w:words come here
+yyyy B2 A A G2 G2 G F G F E2 D2 z2
+%w:words come here
+yyyy G2 G F G2 D2 E G A B A2 G2 z2
+%w:words come here
+yyyy D2 G2 F2 G2 A2 B A c B A2 z2
+%w:words come here
+yyyy d2 c B A2 c2 B G A A G3 yy |]
+%w:words come here

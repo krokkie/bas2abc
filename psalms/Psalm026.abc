@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 26
+C:O Heer, doen aan my reg! ...(7)
+L:1/4
+M:C|
+K:C
+Q:1/2=100
+yy E2 A2 G2 F F E2 z2
+%w:words come here
+yyyy A2 G E F G A2 z2
+%w:words come here
+yyyy c2 B A G2 E2 F D E2 z2
+%w:words come here
+yyyy G2 A B c B A2 G2 z2
+%w:words come here
+yyyy c2 B d A c B2 A2 z2
+%w:words come here
+yyyy A2 c2 B2 A G F F E3 yy |]
+%w:words come here

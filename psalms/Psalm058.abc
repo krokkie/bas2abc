@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 58
+C:Spreek jul wel waarlik reg, o regters? ...(4)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy A2 B B A2 d2 c d B2 A2 z2
+%w:words come here
+yyyy A2 F F D G F2 E2 D2 z2
+%w:words come here
+yyyy D2 F G A2 A2 B c d2 z2
+%w:words come here
+yyyy d2 c B A B A G F2 E2 z2
+%w:words come here
+yyyy E2 F G A2 F2 B B A2 z2
+%w:words come here
+yyyy d2 c B A d c2 B2 A3 yy |]
+%w:words come here

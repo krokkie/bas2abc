@@ -1,0 +1,24 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 32
+C:Welsalig wie van skuld en straf onthewe, ...(6)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy D2 F2 G2 A2 A2 A F G A B2 A2 z2
+%w:words come here
+yyyy G2 F F E2 A2 B A G F E2 D2 z2
+%w:words come here
+yyyy D2 F G A2 A2 B A G G F2 z2
+%w:words come here
+yyyy A2 G F E2 F2 G F D2 E2 D2 z2
+%w:words come here
+yyyy d2 d d c2 A2 B c d c B2 A2 z2
+%w:words come here
+yyyy A2 A A B2 A2 G B A G F2 E2 z2
+%w:words come here
+yyyy A2 A A B2 d2 c A B B A2 z2
+%w:words come here
+yyyy A2 B B A2 G2 F E D2 E2 D3 yy |]
+%w:words come here

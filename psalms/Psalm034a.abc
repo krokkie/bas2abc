@@ -1,0 +1,24 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 34a
+C:In weelde en ongeluk, ...(9) - 1. Eerste wysie
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy E2 G F G2 A2 B2 z2
+%w:words come here
+yyyy B2 B B d c B2 A2 G2 z2
+%w:words come here
+yyyy B2 A G F A G2 F2 G2 z2
+%w:words come here
+yyyy B2 G E A2 F2 E2 z2
+%w:words come here
+yyyy E2 G F E E D2 z2
+%w:words come here
+yyyy G2 F G A2 B2 B ^A B2 z2
+%w:words come here
+yyyy B2 d d c2 B2 =A G F2 z2
+%w:words come here
+yyyy A2 G F E2 ^D2 E3 yy |]
+%w:words come here

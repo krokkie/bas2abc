@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 114
+C:Toe Isra'el uit Egipteland, ...(4)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy A2 A A F A G2 F2 E2 z2
+%w:words come here
+yyyy A2 B d c2 B2 A2 z2
+%w:words come here
+yyyy A2 A A F A G2 F2 E2 z2
+%w:words come here
+yyyy A2 B d c2 B2 A2 z2
+%w:words come here
+yyyy A2 d c B A G2 F2 E2 z2
+%w:words come here
+yyyy F2 G F E2 E2 D3 yy |]
+%w:words come here

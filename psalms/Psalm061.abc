@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 61
+C:Neig, o God, tot my die ore! ...(6)
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy E2 A A G c2 B A2 G c2 B A2 G2 z2
+%w:words come here
+yyyy E2 G2 E A A ^G A2 z2
+%w:words come here
+yyyy A2 E2 A A =G G F2 E A2 B c2 B2 z2
+%w:words come here
+yyyy B2 d2 c B A2 ^G2 A3 yy |]
+%w:words come here

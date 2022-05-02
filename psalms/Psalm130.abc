@@ -1,0 +1,24 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 130
+C:b. Uit dieptes van my sonde, ...(4)
+L:1/4
+M:C|
+K:C
+Q:1/2=100
+yy A2 D E F E D2 C2 z2
+%w:words come here
+yyyy F2 D E F2 G2 A2 z2
+%w:words come here
+yyyy A2 ^G A B c B2 A2 z2
+%w:words come here
+yyyy d2 c A c2 B2 A2 z2
+%w:words come here
+yyyy A2 c2 A2 =G F E2 D2 z2
+%w:words come here
+yyyy G2 F E D D C2 z2
+%w:words come here
+yyyy F2 F G A _B G2 F2 z2
+%w:words come here
+yyyy A2 G F G2 E2 D3 yy |]
+%w:words come here

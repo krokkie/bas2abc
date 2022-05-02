@@ -1,0 +1,14 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 52
+C:Wat roem jy, wreedaard, so hooghartig? ...(4)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy A2 A B c d d c B2 A2 F2 B B A ^G A2 z2
+%w:words come here
+yyyy F2 =G2 A2 F D G F E2 D2 A2 G F D E F2 z2
+%w:words come here
+yyyy F2 D E F A G2 F2 E A G F D2 E2 D3 yy |]
+%w:words come here

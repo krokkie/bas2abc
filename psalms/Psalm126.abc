@@ -1,0 +1,24 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 126
+C:Toe God uit smaad en slawerny ...(3)
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy D2 A A B G c2 B2 A2 z2
+%w:words come here
+yyyy A2 A B G F G2 E2 D2 z2
+%w:words come here
+yyyy D2 A A B G c2 B2 A2 z2
+%w:words come here
+yyyy A2 A B G F G2 E2 D2 z2
+%w:words come here
+yyyy d2 G A c B A G B2 A2 z2
+%w:words come here
+yyyy d2 G A c B A G B2 A2 z2
+%w:words come here
+yyyy G2 F G E D G2 A2 B2 z2
+%w:words come here
+yyyy B2 d2 c2 B c A A G3 yy |]
+%w:words come here

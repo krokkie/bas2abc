@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 79
+C:Die heid'ne het gekom, 'n woeste hoop, ...(9)
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy D2 G2 A2 B2 B2 B A c B A2 z2
+%w:words come here
+yyyy D2 G A B2 c2 B A B ^c d2 z2
+%w:words come here
+yyyy B2 A A G2 G2 G F G E D2 z2
+%w:words come here
+yyyy G2 G F G2 D2 E G A2 A2 G3 yy |]
+%w:words come here

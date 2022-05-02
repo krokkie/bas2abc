@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 110
+C:Die Heer is dit wat tot my Heer gespreek het: ...(8)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy A2 F G A2 A2 B d c A B2 A2 z2
+%w:words come here
+yyyy B2 A G F2 A2 G F E E D2 z2
+%w:words come here
+yyyy d2 d d c2 A2 B c d c B2 A2 z2
+%w:words come here
+yyyy A2 B A F2 A2 G F E E D3 yy |]
+%w:words come here

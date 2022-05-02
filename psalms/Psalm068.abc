@@ -1,0 +1,32 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 68
+C:Die Heer sal opstaan tot die stryd; ...(16)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy D2 D E F D F ^G A2 z2
+%w:words come here
+yyyy A2 =G F E D F ^G A2 z2
+%w:words come here
+yyyy B2 A =G F D E2 D2 z2
+%w:words come here
+yyyy D2 D E F D F ^G A2 z2
+%w:words come here
+yyyy A2 =G F E D F ^G A2 z2
+%w:words come here
+yyyy B2 A =G F D E2 D2 z2
+%w:words come here
+yyyy d2 d d c A B B A2 z2
+%w:words come here
+yyyy d2 d d c A B B A2 z2
+%w:words come here
+yyyy F2 G B A F G2 F2 z2
+%w:words come here
+yyyy E2 F G A G F F E2 z2
+%w:words come here
+yyyy A2 B c d c B B A2 z2
+%w:words come here
+yyyy D2 E F G F E2 D3 yy |]
+%w:words come here

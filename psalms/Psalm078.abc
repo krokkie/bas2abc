@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 78
+C:Merk op, my volk wat nou my roepstem hoor, ...(25)
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy G2 G A B2 d2 c B G A B2 z2
+%w:words come here
+yyyy B2 B B A2 B2 c A G2 F2 G2 z2
+%w:words come here
+yyyy D2 G A B2 c2 B d d ^c d2 z2
+%w:words come here
+yyyy d2 =c B A2 G2 A c B2 A2 B2 z2
+%w:words come here
+yyyy c2 B A G2 G2 F G E E D2 z2
+%w:words come here
+yyyy D2 E2 F2 G B A G G2 F2 G3 yy |]
+%w:words come here

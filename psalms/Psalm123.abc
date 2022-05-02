@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 123
+C:Ek hef tot U wat in die hemel sit, ...(2)
+L:1/4
+M:C|
+K:F
+Q:1/2=100
+yy A2 F2 G2 A A G F A2 =B2 c A A G F2 E2 F2 z2
+%w:words come here
+yyyy F2 F G A2 A2 c _B A G F2 E F G A B2 A2 G2 F2 z2
+%w:words come here
+yyyy A2 A B c2 B2 A G F G A2 G B A G F E D2 C2 z2
+%w:words come here
+yyyy F2 A B c2 c2 A A F2 G2 A A G B A2 G2 F3 yy |]
+%w:words come here

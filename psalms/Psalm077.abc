@@ -1,0 +1,24 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 77
+C:Opwaarts klim my roep en rede, ...(10)
+L:1/4
+M:C|
+K:F
+Q:1/2=100
+yy G2 G2 ^F G A B A2 G2 z2
+%w:words come here
+yyyy G2 G2 F G A B A2 G2 z2
+%w:words come here
+yyyy B2 A2 G B A G =F2 z2
+%w:words come here
+yyyy F2 E2 D G G ^F G2 z2
+%w:words come here
+yyyy B2 c2 d d c B c2 B2 z2
+%w:words come here
+yyyy B2 c2 d d c B c2 B2 z2
+%w:words come here
+yyyy B2 A2 G B A G =F2 z2
+%w:words come here
+yyyy F2 E2 D G G ^F G3 yy |]
+%w:words come here

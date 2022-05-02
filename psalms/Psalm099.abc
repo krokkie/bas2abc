@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 99
+C:God die Heer regeer. Beef, o volke, eer,  ...(5)
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy G2 D2 E F G B2 B c A G2 z2
+%w:words come here
+yyyy d2 d2 B ^c d B2 d =c c B2 z2
+%w:words come here
+yyyy d2 c2 B A G E2 F G E D2 z2
+%w:words come here
+yyyy D2 G2 A B c2 B G2 A B c A2 G3 yy |]
+%w:words come here

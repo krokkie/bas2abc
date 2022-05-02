@@ -1,0 +1,24 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 17
+C:O Heer, verleen my tog verhoor; ...(7)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy G2 F2 A2 B A G E F2 z2
+%w:words come here
+yyyy D2 A A B2 B2 d d c2 B2 z2
+%w:words come here
+yyyy F2 B B A2 d2 d c B2 A2 z2
+%w:words come here
+yyyy F2 E D E2 F2 G G F2 z2
+%w:words come here
+yyyy A2 B2 d2 B G A A G2 F2 z2
+%w:words come here
+yyyy F2 E D G G F2 E2 D2 z2
+%w:words come here
+yyyy D2 E G F D E2 E2 F2 z2
+%w:words come here
+yyyy A2 B2 A2 G E F A G2 F3 yy |]
+%w:words come here

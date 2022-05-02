@@ -1,0 +1,18 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 107b
+C:Loof God, omdat hy goed is, ...(21) - 2. Tweede wysie
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy D2 F2 A2 d2 c2 B4
+%w:words come here
+ A2 F2 D2 D2 E2 E2 F6 D2 F2 A2 d2 c2 B4
+%w:words come here
+ A2 F2 E2 A2 B2 c2 A6 A2 B2 A2 G2 F2 G6 E2 A2 G2 F2 D2 F4
+%w:words come here
+ E2 D2 F2 A2 d2 c2 B6 A2 D2 E2 F2 G2 E4
+%w:words come here
+ D2 yy |]
+%w:words come here

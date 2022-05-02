@@ -1,0 +1,28 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 46
+C:God is 'n toevlug in die nood, ...(6)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy d d d A B d B A2 yyyy
+%w:words come here
+z d c B A B G E D2 yyyy
+%w:words come here
+z d d d A B d B A2 yyyy
+%w:words come here
+z d c B A B G E D2 yyyy
+%w:words come here
+z D A B A ^G A2 z2
+%w:words come here
+yyyy D A A B c d2 z2
+%w:words come here
+yyyy c d c B B A2 z2
+%w:words come here
+yyyy B B A B =G F2 z2
+%w:words come here
+yyyy d c B A B G E D2 yyyy
+%w:words come here
+z yy |]
+%w:words come here

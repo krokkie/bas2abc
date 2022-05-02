@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 80
+C:O Herder Isr'els, neem ter ore, ...(10)
+L:1/4
+M:C|
+K:C
+Q:1/2=100
+yy A2 d2 d2 c A c c B2 A2 z2
+%w:words come here
+yyyy A2 F F _B A G F E2 D2 z2
+%w:words come here
+yyyy D2 F G A2 A2 G G A2 z2
+%w:words come here
+yyyy D2 F G A2 A2 G G A2 z2
+%w:words come here
+yyyy A2 c c d A c2 =B2 A2 z2
+%w:words come here
+yyyy A2 _B A G F G2 E2 D3 yy |]
+%w:words come here

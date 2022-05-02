@@ -1,0 +1,24 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 63
+C:My God, wat tog my lewe is, ...(6)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy D2 F2 G2 A2 F2 E E D2 z2
+%w:words come here
+yyyy d2 c B A F B2 B2 A2 z2
+%w:words come here
+yyyy d2 c B A F G2 G2 F2 z2
+%w:words come here
+yyyy A2 B A G2 F2 E E D2 z2
+%w:words come here
+yyyy A2 B2 d2 d c B2 B2 A2 z2
+%w:words come here
+yyyy A2 B2 d2 d c B2 B2 A2 z2
+%w:words come here
+yyyy F2 G B A F G G F2 z2
+%w:words come here
+yyyy A2 B A G2 F2 E E D3 yy |]
+%w:words come here

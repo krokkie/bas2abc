@@ -1,0 +1,28 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 122
+C:Ek was verheug toe die geluid ...(2)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy A2 A B A d c2 B2 A2 z2
+%w:words come here
+yyyy A2 F G A2 B2 A G F2 z2
+%w:words come here
+yyyy A2 F G A2 B2 A G F2 z2
+%w:words come here
+yyyy d2 c B A F G2 B2 A2 z2
+%w:words come here
+yyyy F2 A A E F G F D2 z2
+%w:words come here
+yyyy F2 A A E F G F D2 z2
+%w:words come here
+yyyy d2 c d A A B d c2 d2 z2
+%w:words come here
+yyyy A2 d c B B A2 G2 F2 z2
+%w:words come here
+yyyy A2 d c B B A2 G2 F2 z2
+%w:words come here
+yyyy D2 D E F2 A2 G F E2 D3 yy |]
+%w:words come here

@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 59a
+C:Red my o God, wil my bewaar! ...(10) - 1. Eerste wysie
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy G2 E D G2 G2 A A B2 z2
+%w:words come here
+yyyy B2 B B A c B2 A2 G2 z2
+%w:words come here
+yyyy B2 d ^c B2 G2 A A B2 z2
+%w:words come here
+yyyy d2 d =c B A B2 ^c2 d2 z2
+%w:words come here
+yyyy b2 b b =c B A2 G2 F2 z2
+%w:words come here
+yyyy d2 c B A c B2 A2 G2 yy |]
+%w:words come here

@@ -1,0 +1,18 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 43
+C:Heer, doen my reg, hoor my gebede, ...(5)
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy G2 A2 A2 G G c c B2 A2 yyyy
+%w:words come here
+z G A2 c2 B A G2 F2 G2 z2
+%w:words come here
+yyyy B2 B B A A B d ^c2 d2 z2
+%w:words come here
+yyyy A2 A A B2 A2 G F E2 D2 z2
+%w:words come here
+yyyy B2 d =c B A B2 c2 B B A G G F G3 yy |]
+%w:words come here

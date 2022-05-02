@@ -1,0 +1,18 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 57
+C:Wees my genadig, o my God! Ek soek ...(5)
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy A2 c2 B2 A2 d2 c A B B A2 z2
+%w:words come here
+yyyy A2 B c d2 d2 c A B B A2 z2
+%w:words come here
+yyyy A2 c c B2 A2 G B A G F2 E2 z2
+%w:words come here
+yyyy G2 A B c2 c2 B A A ^G A2 z2
+%w:words come here
+yyyy A2 c B A2 E2 F A =G F E2 D3 yy |]
+%w:words come here

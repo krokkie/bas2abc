@@ -1,0 +1,32 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 19
+C:Die ho‰ hemelrond ...(7)
+L:1/4
+M:C|
+K:G
+Q:1/2=100
+yy D2 A A B2 A2 G2 z2
+%w:words come here
+yyyy G2 A B c2 B2 A2 z2
+%w:words come here
+yyyy E2 G G F2 E2 D2 z2
+%w:words come here
+yyyy D2 A A B2 A2 G2 z2
+%w:words come here
+yyyy G2 A B c2 B2 A2 z2
+%w:words come here
+yyyy E2 G G F2 E2 D2 z2
+%w:words come here
+yyyy d2 d d c2 B2 A2 z2
+%w:words come here
+yyyy G2 A B c2 B2 A2 z2
+%w:words come here
+yyyy B2 A G F G E2 D2 z2
+%w:words come here
+yyyy d2 G A c2 B2 A2 z2
+%w:words come here
+yyyy G2 F E F2 ^G2 A2 z2
+%w:words come here
+yyyy A2 B A =G F E2 D3 yy |]
+%w:words come here

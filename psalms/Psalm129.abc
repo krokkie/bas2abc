@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 129
+C:Al van my jeug af was ek martelaar! ...(6)
+L:1/4
+M:C|
+K:C
+Q:1/2=100
+yy D2 D E F2 A2 G F E E D2 z2
+%w:words come here
+yyyy A2 F G A2 d2 d ^c B A B2 A2 z2
+%w:words come here
+yyyy G2 G A F2 D2 G F E E F2 z2
+%w:words come here
+yyyy A2 B d c2 B2 A F G F E2 D3 yy |]
+%w:words come here

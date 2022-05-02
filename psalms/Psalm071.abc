@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 71
+C:Op U alleen, my Rotssteen, bou ek ...(15)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy D2 F2 A2 A F G A B2 A2 z2
+%w:words come here
+yyyy F2 A G F2 E2 F2 z2
+%w:words come here
+yyyy A2 G F E E D2 z2
+%w:words come here
+yyyy A2 B c d A d c B2 A2 z2
+%w:words come here
+yyyy A2 B c d A B2 A2 z2
+%w:words come here
+yyyy F2 A E F G E2 D3 yy |]
+%w:words come here

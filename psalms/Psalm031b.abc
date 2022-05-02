@@ -1,0 +1,18 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 31b
+C:Net soos 'n rots, gesterk, gestewig ...(19) - 2. Tweede wysie
+L:1/4
+M:C|
+K:F
+Q:1/2=100
+yy C2 F2 E2 F2 C2 A2 G2 G4
+%w:words come here
+ F2 A2 B2 A2 F2 G2 A2 A2 G2 F2 F2 E2 F2 A2 c2 A2 G2 F2 A2 G2 F4
+%w:words come here
+ E2 c2 e2 G2 c2 B2 A4
+%w:words come here
+ G2 A2 B2 A2 A2 G2 G4
+%w:words come here
+ F2 yy |]
+%w:words come here

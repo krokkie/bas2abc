@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 92b
+C:Wie sou die Heer nie prys nie, ...(7) - 2. Tweede wysie
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy A2 c2 A2 B2 A2 F4
+%w:words come here
+ D2 F2 E2 A2 B2 ^G2 A2 F2 B2 A2 =G2 E2 F2 A2 d2 A2 B2 A2 F3 D2 F2 G4
+%w:words come here
+ E2 F2 D2 E2 F2 A2 B2 c2 d2 d2 c2 A2 d2 B2 A2 ^G2 A2 F2 B2 A2 =G2 F2 E4
+%w:words come here
+ D2 yy |]
+%w:words come here

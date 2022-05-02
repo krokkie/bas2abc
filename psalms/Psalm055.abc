@@ -1,0 +1,20 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 55
+C:Verhoor, o God, verhoor my klagte, ...(10)
+L:1/4
+M:C|
+K:D
+Q:1/2=100
+yy F2 A A B2 A2 d c B2 A2 z2
+%w:words come here
+yyyy A2 B B A2 F2 G F E2 D2 z2
+%w:words come here
+yyyy A2 B B A2 d2 c d B2 A2 z2
+%w:words come here
+yyyy B2 A G F2 B2 A G F2 z2
+%w:words come here
+yyyy A2 B c d2 A2 B c d2 z2
+%w:words come here
+yyyy d2 c B c2 A2 B d c2 B3 yy |]
+%w:words come here

@@ -1,0 +1,16 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 87
+C:Hoe grondvas staan Jerusalem se walle, ...(5)
+L:1/4
+M:C|
+K:F
+Q:1/2=100
+yy F2 D2 G2 F F G A B A G2 F2 z2
+%w:words come here
+yyyy B2 c c d2 c2 A B G G F2 z2
+%w:words come here
+yyyy F2 G2 A2 F F G B B A B2 z2
+%w:words come here
+yyyy B2 G F B2 A2 F G A B G2 F3 yy |]
+%w:words come here

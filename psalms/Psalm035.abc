@@ -1,0 +1,24 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 35
+C:Verdedig to my regsaak, Heer, ...(12)
+L:1/4
+M:C|
+K:F
+Q:1/2=100
+yy F2 F G A G F2 E2 F2 z2
+%w:words come here
+yyyy A2 A G A2 c2 B A G2 z2
+%w:words come here
+yyyy A2 c c d c B A G2 F2 z2
+%w:words come here
+yyyy C2 D E F A G F E2 F2 z2
+%w:words come here
+yyyy F2 G2 A2 F G A =B c2 z2
+%w:words come here
+yyyy F2 G2 A2 F E D D C2 z2
+%w:words come here
+yyyy c2 c A F2 _B2 A G A2 z2
+%w:words come here
+yyyy A2 G F E2 G2 F E F3 yy |]
+%w:words come here
