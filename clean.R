@@ -7,10 +7,10 @@ KEYS <- list(
   'D' = c('f#', 'c#'),
   'G' = c('f#'),
   'C' = character(0),
-  'F' = c('c-'),
-  'Bb'= c('c-', 'f-'),
-  'Eb'= c('c-', 'f-', 'b-'),
-  'Ab'= c('c-', 'f-', 'b-', 'e-')  # Db, Gb, Cb not implemented yet
+  'F' = c('b-'),
+  'Bb'= c('b-', 'e-'),
+  'Eb'= c('b-', 'e-', 'a-'),
+  'Ab'= c('b-', 'e-', 'a-', 'd-')  # Db, Gb, Cb not implemented yet
 )
 
 iif <- function(cond, trueval, falseval) {
@@ -333,7 +333,7 @@ Play2ABC <- function(play, title, subtitle=NULL) {
 
   findkey <- function(play) {
     if (FALSE) {
-      play <- all$playstatements[19]
+      play <- all$playstatements[137]
     }
     play <- gsub("\\.", "", play) %>%
              gsub("\\+", "#", .)
@@ -374,7 +374,23 @@ Play2ABC <- function(play, title, subtitle=NULL) {
       }
     } else {
       # molle
-      "C"
+      if (mostprominent['b']=="-") {
+        if (mostprominent['e']=="-") {
+          if (mostprominent['a']=="-") {
+            if (mostprominent['d']=="-") {
+              "Ab"
+            } else {
+              "Eb"
+            }
+          } else {
+            "Bb"
+          }
+        } else {
+          "F"
+        }
+      } else {
+        "C"
+      }
     }
   }
   K <- findkey(play)
