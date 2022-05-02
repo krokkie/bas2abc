@@ -67,6 +67,7 @@ combinePlaystatement <- function(i, header, statement) {  # i <- 19
   all <- statement[header$startLine[i]:header$endLine[i]]
   all <- gsub(":PRINT \"[^\"]*\"", "", all) %>%
          gsub("LOCATE [0-9]*,[0-9]*", "", .) %>%
+         gsub("^REM.*", "", .) %>%
          gsub(".*PLAY[ ]*", "", .) %>%
           gsub('"', "", .) %>%
           gsub(':GOTO [0-9]*', "", .) %>%
@@ -79,6 +80,7 @@ combinePlaystatement <- function(i, header, statement) {  # i <- 19
     gsub("([a-g])", " \\1", .) %>%    # put a space before each note
     gsub("(l[0-9])", " \\1", .) %>%   # put a space before length instruction
     gsub("(o[0-9])", " \\1", .) %>%   # put a space before octave selector
+    gsub("   ", " ", .) %>%           # remove double spaces
     gsub("  ", " ", .) %>%            # remove double spaces
     gsub(" #", "#", .) %>%            # in BASIC you can write "f #"
     trimws()
@@ -88,13 +90,13 @@ combinePlaystatement <- function(i, header, statement) {  # i <- 19
 
 LINERANGES <- list(
   "PSALMS.BAS" = 8:157,
-  "SKRIF.BAS" = 4:53
+  "SKRIF.BAS" = 8:57
 )
 
 
 dofile <- function(fn, mainvar="A") {
   if (FALSE) {
-    fn <- "PSALMS.BAS"
+    fn <- "SKRIF.BAS"
     mainvar <- "A"
   }
 
@@ -111,12 +113,14 @@ dofile <- function(fn, mainvar="A") {
     line %>%
       gsub(paste0(".*IF ", mainvar, "="), "", .) %>%
       gsub(" .*PRINT \"", "\t",.) %>%
+      gsub(" .*PRINT CHR[^\"]*\"", "\t",.) %>%
       gsub("\":GOTO ", "\t", .)
   }
 
   headerRange <- LINERANGES[[fn]]
   x <- processheader(statement[headerRange], mainvar) %>%
          strsplit("\t")
+  if (any(sapply(x, length)!=3)) stop("header detection problem....")
 
   header <- as.data.frame(list(Nr=sapply(x, getElement, 1),
                                FirstLine=sapply(x, getElement, 2),
@@ -126,10 +130,15 @@ dofile <- function(fn, mainvar="A") {
   # find the final GOTO statement that ends each song
   finalGoto <- gsub(".*GOTO ", "GOTO ", statement[header$startLine[2]-1])
   lastSongStartline <- header$startLine[nrow(header)]
-
   lastSongEndline <- lastSongStartline + which(regexpr(finalGoto, statement[lastSongStartline:length(statement)])>0)[1] - 1
 
   header$endLine <- c(header$startLine[2:nrow(header)]- 1, lastSongEndline)
+
+  if (fn=="SKRIF.BAS") {
+    # same tune - just a GOTO statement
+    header[50, c("startLine", "endLine")] <- header[25, c("startLine", "endLine")]
+  }
+
 
   header$playstatements <- sapply(1:nrow(header), combinePlaystatement, header, statement)
 
@@ -250,6 +259,9 @@ Play2ABC <- function(play, title, subtitle=NULL) {
       newnote <- paste0(newnote, 4*LL)
     } else if (L==4) {
       newnote <- paste0(newnote, 2*LL)
+    } else if (L==6) {
+      warning("assume L6 in Skrifberyming 19 = L8 :-) ")
+
     } else if (L==8) {
       # do nothing, the note is fine as is.
       if (LL != 1) {
@@ -306,7 +318,7 @@ Play2ABC <- function(play, title, subtitle=NULL) {
       tryCatch(processNote(x),
                error=function(e) stop("Error processing note '",x,"': ", e))
     } else {
-      stop("doesnot understand ", x)
+      stop("doesnot understand '", x, "'")
     }
   }
 
@@ -428,8 +440,9 @@ Play2ABC <- function(play, title, subtitle=NULL) {
 }
 
 
-dofile("PSALMS.BAS")
+# dofile("PSALMS.BAS")
 
+dofile("SKRIF.BAS")
 
 if (FALSE) {
   play <- 'o2 l4 t100 mn a b a f# a l8 g f# l4 g e d p4 l8 d l4 f# g a a l8 b a f# g# l4 a p4 a l8 a g l4 f# f# l8 f# e f# a l4 g f# p4 f# l8 a g l4 f# b l8 b b a g l4 f# e p4 l8 f# l4 a a b o3 d l8 c# o2 b l4 a b a p4 a b a f# a l8 g f# l4 g e d'
