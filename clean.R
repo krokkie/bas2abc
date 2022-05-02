@@ -52,7 +52,7 @@ splitBASbasedOnInput <- function(lines) {
   LineNrs[!hasLineNr] <- ""
 
   header$startLine <- match(header$Goto, LineNrs)
-  hasPlay <- (regexec("PLAY ", code2)>0) * 1
+  hasPlay <- (regexec("PLAY", code2)>0) * 1
   countPlays <- rev(cumsum(rev(hasPlay)))
 
   header$endLine <- header$startLine + countPlays[header$startLine] - countPlays[c(header$startLine[2:nrow(header)] - 1, length(code2))]  - 1
@@ -67,16 +67,20 @@ combinePlaystatement <- function(i, header, statement) {  # i <- 19
   all <- statement[header$startLine[i]:header$endLine[i]]
   all <- gsub(":PRINT \"[^\"]*\"", "", all) %>%
          gsub("LOCATE [0-9]*,[0-9]*", "", .) %>%
-         gsub(".*PLAY ", "", .) %>%
+         gsub(".*PLAY[ ]*", "", .) %>%
           gsub('"', "", .) %>%
           gsub(':GOTO [0-9]*', "", .) %>%
+          gsub('^GOTO [0-9]*', "", .) %>%
           trimws() %>%
           gsub("\\+", "#", .)   # BASIC allows both a "+" or a "#" as a sharp indicator
 
   # make sure we have space padding between all notes....
   comb <- paste0(all, collapse=" ") %>%
     gsub("([a-g])", " \\1", .) %>%    # put a space before each note
+    gsub("(l[0-9])", " \\1", .) %>%   # put a space before length instruction
+    gsub("(o[0-9])", " \\1", .) %>%   # put a space before octave selector
     gsub("  ", " ", .) %>%            # remove double spaces
+    gsub(" #", "#", .) %>%            # in BASIC you can write "f #"
     trimws()
   comb
 }
@@ -89,8 +93,10 @@ LINERANGES <- list(
 
 
 dofile <- function(fn, mainvar="A") {
-
-  if (FALSE) fn <- "PSALMS.BAS"
+  if (FALSE) {
+    fn <- "PSALMS.BAS"
+    mainvar <- "A"
+  }
 
   bas <- readLines(fn)
 
@@ -152,14 +158,17 @@ dofile <- function(fn, mainvar="A") {
     `SKRIF.BAS` = "Skrifberyming"
   )
 
-
-
   DoSong <- function(i) {
+    if (FALSE) {
+      fn <- "PSALMS.BAS"
+      load("PSALMS.RData")
+      i <- 19
+    }
     BetterTitle <- paste0(PROPERNAME[[fn]], " ", gsub("a-z", "", all$Nr[i]))
     message(i, " = ", BetterTitle)
-    j <- as.integer(gsub("a-z", "", all$Nr[i]))
+    j <- as.integer(gsub("[a-z]", "", all$Nr[i]))
     padzero <- 2 - floor(log(j, base=10))
-    ABC <- Play2ABC(all$playstatements[i], BetterTitle, all$FirstLine[i])
+    ABC <- Play2ABC(tolower(all$playstatements[i]), BetterTitle, all$FirstLine[i])
     outfn <- file.path(gsub('\\.bas', '', tolower(fn)), paste0(PROPERNAME[[fn]], paste0(rep("0", padzero), collapse=""), all$Nr[i], '.abc'))
     if (!dir.exists(dirn <- dirname(outfn))) dir.create(dirn)
     writeLines(ABC, outfn)
@@ -175,7 +184,8 @@ dofile <- function(fn, mainvar="A") {
 Play2ABC <- function(play, title, subtitle=NULL) {
 
   if (FALSE) {
-    play <- 'o2 l4 t100 mn a b a f# a l8 g f# l4 g e d p4 l8 d l4 f# g a a l8 b a f# g# l4 a p4 a l8 a g l4 f# f# l8 f# e f# a l4 g f# p4 f# l8 a g l4 f# b l8 b b a g l4 f# e p4 l8 f# l4 a a b o3 d l8 c# o2 b l4 a b a p4 a b a f# a l8 g f# l4 g e d'
+    i <- 19
+    play <- all$playstatements[i]
     title <- "Psalm 1"
     subtitle <- NULL
   }
@@ -211,8 +221,13 @@ Play2ABC <- function(play, title, subtitle=NULL) {
     } else {
       stop("Cannot handle Octave ", O, " for note ", x)
     }
+
+    # local length multiplier
+    LL <- 1
     if (regexpr("\\.", x)>0) {
-      L <- L / 2    # only applies to this note, only a local variable L.
+      # message("found . - L was ", L)
+      LL <- 1.5    # only applies to this note, only a local variable L.
+      # message("setting L to ", LL)
       x <- gsub("\\.", "", x)
     }
 
@@ -232,14 +247,27 @@ Play2ABC <- function(play, title, subtitle=NULL) {
     }
 
     if (L==2) {
-      newnote <- paste0(newnote, "4")
+      newnote <- paste0(newnote, 4*LL)
     } else if (L==4) {
-      newnote <- paste0(newnote, "2")
+      newnote <- paste0(newnote, 2*LL)
     } else if (L==8) {
       # do nothing, the note is fine as is.
+      if (LL != 1) {
+        message("Need a 'dotted' regular note instruction for ABC, which is most probably a mistake: ", x, " - ", title, "; ", play)
+        newnote <- paste0(newnote, 3)
+      }
+    } else if (L==16) {
+      stopifnot(LL==1)
+      newnote <- paste0(newnote, "/")
     } else {
-      stop("Cannot handle L=", L, "yet.  Fix please")
+      stop("Cannot handle L=", L, "yet.  Fix please. LL=", LL)
     }
+
+    if (needToCloseSlur) {  # close the slur
+      newnote <- paste0(newnote, ")")
+      needToCloseSlur <<- FALSE
+    }
+
     newnote
   }
 
@@ -250,23 +278,33 @@ Play2ABC <- function(play, title, subtitle=NULL) {
     } else if (regexec("t", x, ignore.case = TRUE) > 0) {   # Tempo
       Q <<- as.integer(gsub("t", "", x, ignore.case = TRUE))
       NA
+    } else if (regexec("m", x, ignore.case = TRUE) > 0) {   # Change Mode - needs to happen before node Length, because we have a ML
+      prevMode <- M
+      M <<- tolower(gsub("m", "", x, ignore.case = TRUE))
+      if (M=="l") {  # mode legato
+        "("
+      } else {   # mode normal
+        needToCloseSlur <<- prevMode=="l"
+        NA
+      }
     } else if (regexec("l", x, ignore.case = TRUE) > 0) {   # Change Note Length
       L <<- as.integer(gsub("l", "", x, ignore.case = TRUE))
-      NA
-    } else if (regexec("m", x, ignore.case = TRUE) > 0) {   # Change Mode
-      M <<- tolower(gsub("m", "", x, ignore.case = TRUE))
+      if (is.na(L)) stop("Error setting note length: '",x,"'")
       NA
     } else if (regexec("p", x, ignore.case = TRUE) > 0) {   # Change Mode
       if (x=="p4") {
         "z2\nyyyy"
       } else if (x=="p8") {
         "yyyy\nz"
+      } else if (x=="p16") {
+        "yyyy\nz/"
       } else {
-        stop("Unknown stop instruction")
+        stop("Unknown stop instruction: ", x)
       }
     } else if (regexec("[a-g]", x, ignore.case = TRUE) > 0) {
       # process this actual note
-      processNote(x)
+      tryCatch(processNote(x),
+               error=function(e) stop("Error processing note '",x,"': ", e))
     } else {
       stop("doesnot understand ", x)
     }
@@ -295,7 +333,7 @@ Play2ABC <- function(play, title, subtitle=NULL) {
 
   findkey <- function(play) {
     if (FALSE) {
-      play <- all$playstatements[3]
+      play <- all$playstatements[19]
     }
     play <- gsub("\\.", "", play) %>%
              gsub("\\+", "#", .)
@@ -344,11 +382,17 @@ Play2ABC <- function(play, title, subtitle=NULL) {
   O <- 3  # default octave for Basic
   L <- 4  # default note length
   M <- 'n' # music mode (normal vs. legato )
+  needToCloseSlur <- FALSE
 
   noteColour <- setNames(rep('=',7), letters[1:7])
   changeColour(KEYS[[K]])
   notes <- playInstructions(play)
+  if (regexec("\n", notes)<0) {  # no newlines in the notes
+    # try some fancy method to split the lines....
+    notes <- gsub("4", "4\n", notes)
+  }
   lines <- strsplit(gsub("\n", "\n%w:words come here\n", notes), "\n")[[1]]
+
   lines[1] <- paste0('yy ', lines[1])
   lines[length(lines)] <- paste0(lines[length(lines)], ' yy |]')
   lines <- c(lines, '%w:words come here')
@@ -380,5 +424,4 @@ if (FALSE) {
   writeClipboard(res)
 
 }
-9
 
