@@ -1,16 +1,18 @@
 %%vocalfont Arial 14
 X:1
 T:Psalm 8a
-C:Daar is geen land so ver of woes gele‰, ...(7) - 1. Eerste wysie
+C:Daar is geen land so ver of woes gelee...(7) - 1. Eerste wysie
+C:Guillaume Franc, Geneve 1542; 1551
 L:1/4
 M:C|
-K:C
+% Oorspronklike tune was 'n noot op; transponse by: http://www.franziskaludwig.de/abctransposer/  
+K:Bb
 Q:1/2=100
-yy D2 F2 G2 A2 d2 c B A c B2 A2 z2
-%w:words come here
-yyyy d2 d d c2 e2 d A _B A G2 F2 z2
-%w:words come here
-yyyy F2 E E D2 A2 c c G2 B2 A2 yyyy
-%w:words come here
-z A c2 d2 A2 c2 A G F2 E2 D3 yy |]
-%w:words come here
+yy C2 E2 F2 G2 c2 B A G B A2 G2 z2
+%w:words Come here
+yyyy c2 c c B2 d2 c G _A G F2 E2 z2
+%w:words Come here
+yyyy E2 D D C2 G2 B B F2 A2 G2 yyyy
+%w:words Come here
+z G B2 c2 G2 B2 G F E2 D2 C3 yy |]
+%w:words Come here
