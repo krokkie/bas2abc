@@ -3,22 +3,22 @@ X:1
 T:Psalm 2b
 C:Wat dring en dryf die wilde heidendom ...(6) - 2. Tweede wysie
 L:1/4
-M:C|
+M:2/2
 K:Ab
 Q:1/2=100
 yy E B2 A2 c3 d e d c B A3 yyyy
 %w:words come here
-z c B2 B2 B3 A G E G F F2 E yyyy
+z c B2 B2 B3 A G E G F (F2 E) yyyy
 %w:words come here
-z E c c c3 c d c =A F B3 yyyy
+z E c2 c2 c3 c d c =A F B3 yyyy
 %w:words come here
-z d c2 _A2 F3 A2 A2 A2 A2 G2 B2 A2 yyyy
+z d c2 _A2 F3 A A A A G (B2 A) yyyy
 %w:words come here
-z E2 B2 A2 c3 d e d c B A3 yyyy
+z E B2 A2 c3 d e d c B A3 yyyy
 %w:words come here
-z c B2 B2 B3 A G E G F F2 E yyyy
+z c B2 B2 B3 A G E G F (F2 E) yyyy
 %w:words come here
-z E c c c3 c d c =A F B3 yyyy
+z E c2 c2 c3 c d c =A F B3 yyyy
 %w:words come here
-z d c2 _A2 F3 A2 A2 A2 A2 G2 B2 A2 yy |]
+z d c2 _A2 F3 A A A A G (B2 A) yy |]
 %w:words come here
