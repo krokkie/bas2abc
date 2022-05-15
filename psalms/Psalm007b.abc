@@ -1,0 +1,17 @@
+%%vocalfont Arial 14
+X:1
+T:Psalm 7
+C:Heer, my God, by wie ek skuiling, ...(8)
+C:PK de Villiers 1937
+L:1/2
+M:4/2
+K:G
+Q:1/2=100
+yy G A B B c d e d % z/
+yyyy d c B B A ^c d2 
+yyyy A F G E =c A G F
+yyyy G d d c B A G2
+yyyy G A B B c d e d
+yyyy d c B B A ^c d2 
+yyyy A F G E =c A G F
+yyyy G d d c B A G2 |]
