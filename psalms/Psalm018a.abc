@@ -1,7 +1,8 @@
 %%vocalfont Arial 14
 X:1
-T:Psalm 18
+T:Psalm 18 a
 C:Ek het U hartlik lief, o Heer! ...(20)
+C:(Paslm 125) - Mathias Greiter 1562; Straatsburg 1539 (Psalm 25); Geneve 1542; ritmies aangepas 1976
 L:1/4
 M:C|
 K:C
@@ -22,3 +23,4 @@ yyyy A2 B c A F A2 G2 F2 z2
 %w:words come here
 yyyy A2 A A G F G2 E2 D3 yy |]
 %w:words come here
+
