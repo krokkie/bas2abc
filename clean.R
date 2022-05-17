@@ -445,8 +445,10 @@ Play2ABC <- function(play, title, subtitle=NULL) {
 dofile("SKRIF.BAS")
 
 if (FALSE) {
-  play <- 'o2 l4 t100 mn a b a f# a l8 g f# l4 g e d p4 l8 d l4 f# g a a l8 b a f# g# l4 a p4 a l8 a g l4 f# f# l8 f# e f# a l4 g f# p4 f# l8 a g l4 f# b l8 b b a g l4 f# e p4 l8 f# l4 a a b o3 d l8 c# o2 b l4 a b a p4 a b a f# a l8 g f# l4 g e d'
-  title <- "Psalm 1"
+  play <- 't100 mn l8 o2 g g g l4 o3 c o2 g o3 c o2 g p4 l8 o3 c c l4 d d c p8 l8 c o2 l4 a l8 a a l4 f l8 b- a l4 g f p4 l8 o2 a a o3 l4 d o2 a o3 d o2 a p4 p8 l8 o3 d l4 e l8 e e d d d d l4 o2 b b l8 g g o3 c o2 b a g l4 a l8 a a l4 b g l8 o3 c o2 b a g l4 a a g g p4 g l8 a- a- a- a- g g g g l4 f f p4 f l8 e- e- e- e- d- d- d- d- c c l4 c p4 c l8 c c c c o1 l4 b b o2 c p4 l8 c c d- d- l4 e- l8 f f g g l4 a- b- o3 c p4 l8 o3 c c d d d d l4 e l8 e e l4 c l8 c c o2 a a a a l4 f l8 f f l4 b- l8 a b- l4 g f p4 l8 o2 f f l4 f l8 f f l4 b- l8 a b- l4 o3 c l8 c c l4 o2 b- b- a l8 a a l4 g f p8 l8 o2 f l4 b- l8 f f l4 b- l8 f f l4 b- p4 p4 l8 o2 a a o3 l4 d l8 d d c c c c o2 b- b- b- b- l4 a l8 o2 a a f f b- a l4 g g f l8 f f l4 b- l8 f f l4 b- b- p4 l4 o2 a o3 d l8 d d l4 c c o2 b b p4 l8 o2 a g l2 o3 e l4 d d l2 c c'
+
+
+  title <- "Geloofsbelydenis"
   subtitle <- NULL
   res <- Play2ABC(play, title, subtitle)
 

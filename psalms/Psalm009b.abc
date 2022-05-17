@@ -1,13 +1,12 @@
-%%vocalfont Arial 14
 X:1
 T:Psalm 9b
-C:Ek sal van ganser harte, Heer, ...(15) - 2. Tweede wysie
+C:Ek sal van ganser harte, Heer, ...(15)
 C:Johannes de Heer 1937; ritmies aangepas 2001
 L:1/4
 M:2/2
 K:F
 Q:1/2=100
 yy C2 F2 A2 d2 c2 B2 A2 G2 
-yyyyc2 F2 A2 G2 F2 E2 D2 C3 z
-yyyyC2 F2 F2 E2 F2 B2 A2 A4
-yyyyG2 G2 A2 B2 c2 F2 B2 A2 G4 HF2 yy |]
+yyyy c2 F2 A2 G2 F2 E2 D2 C3 z
+yyyy C2 F2 F2 E2 F2 B2 A2 A4 G2
+yyyy G2 A2 B2 c2 F2 B2 A2 G4 HF2 yy |]
