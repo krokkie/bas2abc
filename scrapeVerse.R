@@ -52,6 +52,30 @@ removeHeaders <- function(x) {
 psx <- lapply(Ps, removeHeaders)
 
 NrLines <- sapply(psx, length)
-emptyLines <-
+emptyLines <- sapply(psx, function(x)sum(trimws(x)==""))
+
+# alternative source for verse-text
+u1 <- 'https://jschedule.sajansen.nl/api/v1/auth/application/request-access/hymnbook?clientName=bas2abc'
+a1 <- httr::content(httr::POST(u1))
+u2 <- paste0('https://jschedule.sajansen.nl/api/v1/auth/application/request-access/hymnbook?clientName=bas2abc&requestID=', a1$content$requestID)
+a2 <- httr::content(httr::POST(u2))
+jwt <- a2$content$jwt
+
+h <- c(Accept="application/json",
+       Authorization = paste0("Bearer ", jwt))
+
+bundles <- 'https://jschedule.sajansen.nl/api/v1/songs/bundles?loadSongs=true&loadVerses=false'
+b1 <- httr::content(httr::GET(bundles, httr::add_headers(.headers = h)))
+
+sapply(b1$content, getElement, "name")
+sapply(b1$content, getElement, "id")
+
+# Psalms ID = 13
+# Skrifberymings = 14
+names(b1$content[[3]])
+
+
+
+
 
 
