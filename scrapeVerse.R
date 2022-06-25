@@ -1,34 +1,27 @@
+# Get the Psalm text from the VGK website
 getverse <- function(nr, tag) {
-  if (FALSE) {
-    tag <- "ps"
-    nr <- "1"
-  }
   URL <- paste0("https://www.vgk.org.za/", tag, "/", nr)
   doc <- httr::content(httr::GET(URL))
   t <- rvest::html_elements(doc, xpath = "//article/div/div/div")
-
   strsplit(rvest::html_text2(t), "\n")[[1]]
 }
+# don't scrape this every time
+cachefn <- "verse.Rdata"
+if (file.exists(cachefn)) {
+  load("verse.Rdata")
+} else {
+  Ps <- lapply(setNames(nm=1:150), getverse, tag='ps')
+  Sb <- lapply(setNames(nm=1:50), getverse, tag='sb')
+  save(Ps, Sb, file="verse.Rdata")
+}
 
-Ps <- lapply(setNames(nm=1:150), getverse, tag='ps')
-Sb <- lapply(setNames(nm=1:50), getverse, tag='sb')
-
-save(Ps, Sb, file="verse.Rdata")
-load("verse.Rdata")
-
-# need to split the song-text into verses.
-sapply(Ps, getElement, 2)==""
-# Ultimately we need a data-frame:
-# Tag, Nr, subNr, VerseNr, LineNr, WordNr, Word
-# OK   OK  tricky OK,      OK,     OK
-
-# multiple berymings
+# split multiple berymings
 Ps$`23a` <- Ps$`23`[1:22]
-Ps$`23b` <- Ps$`23`[23:45]
+Ps$`23b` <- Ps$`23`[24:45]
 Ps$`23` <- NULL
 
 Ps$`130a` <- Ps$`130`[1:37]
-Ps$`130b` <- Ps$`130`[38:75]
+Ps$`130b` <- Ps$`130`[39:75]
 Ps$`130` <- NULL
 
 # Is daar nog?
