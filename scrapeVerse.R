@@ -28,7 +28,31 @@ Ps$`130` <- NULL
 findWord <- function(x, word) any(regexpr(word, x)>0)
 which(sapply(Ps, findWord, word="beryming"))
 
-removeHeaders <- function(x) {
+# Find psalm headings
+v1Start <- sapply(Ps, FUN = function(t) {
+  x <- grep("^1\\. ", t)
+  if (length(x)==0) x <- NA   # ps 117, single verse
+  x
+})
+
+psName <- sapply(Ps, getElement, 1)  # for most of them
+psName["48"] <- "Psalm 48"
+psName["76"] <- "Psalm 76"
+psName["77"] <- "Psalm 77"
+psName["78"] <- "Psalm 78"
+
+v1Start[is.na(v1Start) | v1Start!=3]
+v1Start["117"] <- 3   # missing the '1. ' identifier, because its a single verse
+
+# remove headers
+# Ultimately we need a data-frame:
+# Tag, Nr, subNr, VerseNr, LineNr, WordNr, Word
+# OK   OK  tricky OK,      OK,     OK
+
+# removeHeaders
+psx <- mapply(function(ps, startv) {
+                ps[startv:length(ps)]
+              }, Ps, v1Start)
   if (x[2]=="" | x[2]==" " ) {
     x <- x[3:length(x)]
   } else {
@@ -57,15 +81,41 @@ jwt <- a2$content$jwt
 h <- c(Accept="application/json",
        Authorization = paste0("Bearer ", jwt))
 
-bundles <- 'https://jschedule.sajansen.nl/api/v1/songs/bundles?loadSongs=true&loadVerses=false'
-b1 <- httr::content(httr::GET(bundles, httr::add_headers(.headers = h)))
+u3 <- 'https://jschedule.sajansen.nl/api/v1/songs/bundles?loadSongs=false&loadVerses=false'
+a3 <- httr::content(httr::GET(u3, httr::add_headers(.headers = h)))
 
-sapply(b1$content, getElement, "name")
-sapply(b1$content, getElement, "id")
-
+# setNames(sapply(a3$content, getElement, "id"), sapply(a3$content, getElement, "name"))
 # Psalms ID = 13
 # Skrifberymings = 14
-names(b1$content[[3]])
+u4 <- 'https://jschedule.sajansen.nl/api/v1/songs/bundles?loadSongs=true&loadVerses=true'
+# u4 <- 'https://jschedule.sajansen.nl/api/v1/songs/bundles/13?loadVerses=true&loadSongBundle=true'
+a4 <- httr::content(httr::GET(u4, httr::add_headers(.headers = h)))
+
+ps <- a4$content[[4]]$songs
+
+names(ps) <- sapply(ps, getElement, "name")
+ps <- sapply(ps, getElement, "verses")  # ignore the top-level descriptors & stuff
+psvs <- sapply(ps, FUN = function(p) {
+          strsplit(sapply(p, getElement, "content"), "\n")
+        } )
+
+samelengthverses <- sapply(psvs, FUN=function(p) {
+  all(sapply(p, length)==length(p[[1]]))
+} )
+
+sum(!samelengthverses)  # 16 psalms with partial verses
+# they are:
+print(partverses <- names(psvs)[!samelengthverses])
+
+psvsl <- sapply(psvs, FUN=function(p) {
+           sapply(p, length)
+})
+
+psvsl[partverses]
+
+psvs$`Psalm 134`  # laaste vers het 'n nota in
+psvs$`Psalm 119`[63]  # missing a versreel - laaste twee in een.
+
 
 
 
