@@ -8,11 +8,11 @@ getverse <- function(nr, tag) {
 # don't scrape this every time
 cachefn <- "verse.Rdata"
 if (file.exists(cachefn)) {
-  load("verse.Rdata")
+  load(cachefn)
 } else {
   Ps <- lapply(setNames(nm=1:150), getverse, tag='ps')
   Sb <- lapply(setNames(nm=1:50), getverse, tag='sb')
-  save(Ps, Sb, file="verse.Rdata")
+  save(Ps, Sb, file=cachefn)
 }
 
 # split multiple berymings
@@ -72,53 +72,63 @@ NrLines <- sapply(psx, length)
 emptyLines <- sapply(psx, function(x)sum(trimws(x)==""))
 
 # alternative source for verse-text
-u1 <- 'https://jschedule.sajansen.nl/api/v1/auth/application/request-access/hymnbook?clientName=bas2abc'
-a1 <- httr::content(httr::POST(u1))
-u2 <- paste0('https://jschedule.sajansen.nl/api/v1/auth/application/request-access/hymnbook?clientName=bas2abc&requestID=', a1$content$requestID)
-a2 <- httr::content(httr::POST(u2))
-jwt <- a2$content$jwt
+getAltSongText <- function() {
+  u1 <- 'https://jschedule.sajansen.nl/api/v1/auth/application/request-access/hymnbook?clientName=bas2abc'
+  a1 <- httr::content(httr::POST(u1))
+  u2 <- paste0('https://jschedule.sajansen.nl/api/v1/auth/application/request-access/hymnbook?clientName=bas2abc&requestID=', a1$content$requestID)
+  a2 <- httr::content(httr::POST(u2))
+  jwt <- a2$content$jwt
 
-h <- c(Accept="application/json",
-       Authorization = paste0("Bearer ", jwt))
+  h <- c(Accept="application/json",
+         Authorization = paste0("Bearer ", jwt))
 
-u3 <- 'https://jschedule.sajansen.nl/api/v1/songs/bundles?loadSongs=false&loadVerses=false'
-a3 <- httr::content(httr::GET(u3, httr::add_headers(.headers = h)))
+  u3 <- 'https://jschedule.sajansen.nl/api/v1/songs/bundles?loadSongs=false&loadVerses=false'
+  a3 <- httr::content(httr::GET(u3, httr::add_headers(.headers = h)))
 
-# setNames(sapply(a3$content, getElement, "id"), sapply(a3$content, getElement, "name"))
-# Psalms ID = 13
-# Skrifberymings = 14
-u4 <- 'https://jschedule.sajansen.nl/api/v1/songs/bundles?loadSongs=true&loadVerses=true'
-# u4 <- 'https://jschedule.sajansen.nl/api/v1/songs/bundles/13?loadVerses=true&loadSongBundle=true'
-a4 <- httr::content(httr::GET(u4, httr::add_headers(.headers = h)))
+  print(setNames(sapply(a3$content, getElement, "id"), sapply(a3$content, getElement, "name")))
 
-ps <- a4$content[[4]]$songs
+  u4 <- 'https://jschedule.sajansen.nl/api/v1/songs/bundles?loadSongs=true&loadVerses=true'
+  # u4 <- 'https://jschedule.sajansen.nl/api/v1/songs/bundles/13?loadVerses=true&loadSongBundle=true'
+  a4 <- httr::content(httr::GET(u4, httr::add_headers(.headers = h)))
 
-names(ps) <- sapply(ps, getElement, "name")
-ps <- sapply(ps, getElement, "verses")  # ignore the top-level descriptors & stuff
-psvs <- sapply(ps, FUN = function(p) {
-          strsplit(sapply(p, getElement, "content"), "\n")
-        } )
+  need <- 13:14  # Psalms ID = 13; Skrifberymings = 14
+  m <- match(need, sapply(a4$content, getElement, "id"))
+  pssb <- a4$content[m]
 
-samelengthverses <- sapply(psvs, FUN=function(p) {
+  cleanup <- function(ps) {
+    names(ps) <- sapply(ps, getElement, "name")
+    ps <- sapply(ps, getElement, "verses")  # ignore the top-level descriptors & stuff
+    psvs <- sapply(ps, FUN = function(p) {
+      strsplit(sapply(p, getElement, "content"), "\n")
+    } )
+  }
+  list(
+    ps=cleanup(pssb[[1]]$songs),
+    sb=cleanup(pssb[[2]]$songs)
+  )
+}
+
+cachefn <- "verse-alt.Rdata"
+if (file.exists(cachefn)) {
+  load(cachefn)
+} else {
+  alt <- getAltSongText()
+  save(alt, file=cachefn)
+}
+
+samelengthverses <- sapply(alt$ps, FUN=function(p) {
   all(sapply(p, length)==length(p[[1]]))
 } )
 
 sum(!samelengthverses)  # 16 psalms with partial verses
 # they are:
-print(partverses <- names(psvs)[!samelengthverses])
+print(partverses <- names(alt$ps)[!samelengthverses])
 
-psvsl <- sapply(psvs, FUN=function(p) {
+psvsl <- sapply(alt$ps, FUN=function(p) {
            sapply(p, length)
 })
 
 psvsl[partverses]
-
-psvs$`Psalm 134`  # laaste vers het 'n nota in
-psvs$`Psalm 119`[63]  # missing a versreel - laaste twee in een.
-
-
-
-
-
-
+alt$ps$`Psalm 134`  # laaste vers het 'n nota in
+alt$ps$`Psalm 119`[63]  # missing a versreel - laaste twee in een.
 
