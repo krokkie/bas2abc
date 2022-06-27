@@ -53,20 +53,6 @@ v1Start["117"] <- 3   # missing the '1. ' identifier, because its a single verse
 psx <- mapply(function(ps, startv) {
                 ps[startv:length(ps)]
               }, Ps, v1Start)
-  if (x[2]=="" | x[2]==" " ) {
-    x <- x[3:length(x)]
-  } else {
-    startline <- which(regexpr("^1.", x)>0)
-    if (length(startline)>0) {
-      warning(startline)
-      x <- x[startline:length(x)]
-    } else {
-      stop("xxx")
-    }
-  }
-}
-
-psx <- lapply(Ps, removeHeaders)
 
 NrLines <- sapply(psx, length)
 emptyLines <- sapply(psx, function(x)sum(trimws(x)==""))
