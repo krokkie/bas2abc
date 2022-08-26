@@ -7,6 +7,6 @@ for file in "${files_dir}"/*.mscz; do
 	echo ${name}
 	
 	mscx-manager export -e xml "$file"
-	python xml2abc.py "${files_dir}/${name}.xml" >> "${files_dir}/${name}.abc"
+	python xml2abc.py "${files_dir}/${name}.xml" > "${files_dir}/${name}.abc"
 	rm "${files_dir}/${name}.xml"
 done
