@@ -1,0 +1,16 @@
+X:1
+T:Psalm 150
+T:V 2
+L:1/4
+M:10/4
+I:linebreak $
+K:D
+V:1 treble nm="Pipe Organ" snm="Org."
+V:1
+ D2 F2 E D F G A2 |$[M:12/4] D2 F2 E D F G A3 z |$[M:10/4] F2 B2 A d d c d2 |$ %3
+w: Loof God met ba- suin- ge- klank!|Gee Hom eer, be- wys Hom dank!|Loof Hom met die harp en luit!|
+[M:12/4] A2 d2 B A A ^G A3 z |$[M:14/4] F2 A2 B A G F E2 D3 z |$[M:12/4] D2 G2 F E F G A3 z |$ %6
+w: Loof Hom met die trom en fluit!|Loof Hom met die bly- e sna- re!|Al wat klank het- laat dit hoor,|
+ D2 G2 F E F G A3 z |$[M:14/4] d2 B2 A G F D E2 D4 |] %8
+w: laat dit op- klink uit die koor|van 'n jui- gend- bly- e ska- re!|
+
