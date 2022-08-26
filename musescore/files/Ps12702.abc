@@ -1,0 +1,14 @@
+X:1
+T:Psalm 127
+T:V 2
+L:1/4
+M:12/4
+I:linebreak $
+K:D
+V:1 treble nm="Pipe Organ" snm="Org."
+V:1
+ A2 d d c A B c d3 z |$[M:14/4] d2 c B A G F2 E2 D3 z |$[M:12/4] D2 E F G A A ^G A3 z |$ %3
+w: Ver- geefs om voor- dag op te staan,|ver- geefs die werk- uur lank ge- meet|en brood van smart met smart ge- ëet,|
+[M:14/4] A2 B B d d c2 B2 A3 z |$ A2 G F B A G2 F2 E3 z |$ E2 F G A B2 A2 ^G A4 |] %6
+w: na- dat die dag al is ge- daan,|God gee, hoe an- der ook mag raap,|dit sy be- min- des in die slaap.|
+
