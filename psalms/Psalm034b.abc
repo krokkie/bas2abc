@@ -2,23 +2,16 @@
 X:1
 T:Psalm 34b
 C:In weelde en ongeluk, ...(9) - 2. Tweede wysie
+C:Ik loof den HEER, mijn God - AC van Velden 1919
 L:1/4
-M:C|
-K:A
+M:C
+K:G
 Q:1/2=60
-yy A B A G A3 yyyy
-%w:words come here
-z/ A ( F/ G/ A) B c d c B yyyy
-%w:words come here
-z/ B c3 G/ A F B3 F/ G/ yyyy
-%w:words come here
-z/ E/ e/ ( A/ G/ c) B A3 yyyy
-%w:words come here
-z/ c B E A A ( G A B yyyy
-%w:words come here
-z/ E) A G F F B A G yyyy
-%w:words come here
-z/ G c B A A d c B yyyy
-%w:words come here
-z/ E e ( A/ B/ c) B A3 yy |]
-%w:words come here
+yy G | B A G F | G3
+yyyy G | (E/F/) G A B | c B A 
+yyyy A | B3/2 F/ G E | A3/2 E/ F
+yyyy D | d ( G/A/) B A  | G3
+yyyy B | A D G G | (F G A)
+yyyy D | G F E E | A G F
+yyyy F | B A G G | c B A
+yyyy D | d (G/A/) B A | G3 |]
