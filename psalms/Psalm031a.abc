@@ -4,17 +4,10 @@ T:Psalm 31a
 C:Net soos 'n rots, gesterk, gestewig ...(19) - 1. Eerste wysie
 L:1/4
 M:C|
-K:D
+K:C
 Q:1/2=100
-yy D2 F2 A2 A F G A B2 A2 z2
-%w:words come here
-yyyy F2 A G F2 E2 F2 z2
-%w:words come here
-yyyy A2 G F E E D2 z2
-%w:words come here
-yyyy A2 B c d A d c B2 A2 z2
-%w:words come here
-yyyy A2 B c d A B2 A2 z2
-%w:words come here
-yyyy F2 A E F G E2 D3 yy |]
-%w:words come here
+yy A2 G E F F G A G2 A2 z2
+yy D2 E F G2 A2 D2 E2 G G F F E2 z2
+yy G2 A B c2 B2 A G A2 B2 z2
+yy A2 d c B A  G2 A2 z2
+yy D2 E F G G F2 E4 |]
