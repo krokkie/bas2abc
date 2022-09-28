@@ -6,8 +6,8 @@ L:1/4
 M:C|
 K:C
 Q:1/2=100
-yy A2 G E F F G A G2 A2 z2
-yy D2 E F G2 A2 D2 E2 G G F F E2 z2
-yy G2 A B c2 B2 A G A2 B2 z2
-yy A2 d c B A  G2 A2 z2
+yy A2 G E F F G A2 ^G A3/2 z2|
+yy D2 E F G2 A2 D2 E2 G G F F E2 z2|
+yy G2 A B c2 B2 A ^G A2 B2 z2|
+yy A2 d c B A  ^G2 A2 z2|
 yy D2 E F G G F2 E4 |]
