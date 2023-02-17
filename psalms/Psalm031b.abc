@@ -2,17 +2,20 @@
 X:1
 T:Psalm 31b
 C:Net soos 'n rots, gesterk, gestewig ...(19) - 2. Tweede wysie
+C:Le Seigneur Dieu qui mon coeur touche - komponis onbekend, Geneve 1557; ritmies aangepas 1967
 L:1/4
 M:C|
-K:F
+K:D
 Q:1/2=100
-yy C2 F2 E2 F2 C2 A2 G2 G4
+yy D2 F2 A2 A F G A B2 A2 z2
 %w:words come here
- F2 A2 B2 A2 F2 G2 A2 A2 G2 F2 F2 E2 F2 A2 c2 A2 G2 F2 A2 G2 F4
+yyyy F2 A G F2 E2 F2 z2
 %w:words come here
- E2 c2 e2 G2 c2 B2 A4
+yyyy A2 G F E E D2 z2
 %w:words come here
- G2 A2 B2 A2 A2 G2 G4
+yyyy A2 B c d A d c B2 A2 z2
 %w:words come here
- F2 yy |]
+yyyy A2 B c d A B2 A2 z2
+%w:words come here
+yyyy F2 A E F G E2 D3 yy |]
 %w:words come here

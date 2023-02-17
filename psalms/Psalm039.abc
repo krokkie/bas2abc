@@ -1,16 +1,17 @@
 %%vocalfont Arial 14
 X:1
 T:Psalm 39
-C:Ek het gesˆ: Ek wil my weg bewaar, ...(7)
+C:Ek het gesÃª: Ek wil my weg bewaar, ...(7)
+C:J'ay dit en moy, De pres je viseray - Loys Bourgeois, Geneve 1551; ritmies aangepas 1976
 L:1/4
 M:C|
 K:C
 Q:1/2=100
 yy E2 E F G2 A2 G c c B c2 z2
 %w:words come here
-yyyy c2 c c B A G2 ^F2 E2 z2
+yyyy c2 c c B A G2 ^F2 G2 z2
 %w:words come here
-yyyy E2 B B B2 G2 c B A A G2 z2
+yyyy E2 A A B2 G2 c B A A G2 z2
 %w:words come here
 yyyy E2 G A c B A2 ^G2 A2 z2
 %w:words come here
