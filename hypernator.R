@@ -6,7 +6,7 @@ library(hyphenatr)
 hyphenatr::switch_dict("af_ZA")
 
 load("verse.Rdata")
-woorde <- unique(tolower(unname(unlist(strsplit(unlist(Ps), " ")))))
+woorde <- unique(tolower(unname(unlist(strsplit(unlist(sb), " ")))))
 woorde <- gsub(",|\\.|\\?|;|!|:|\"|\\(|\\)|/", "", woorde)  # strip leestekens / punctuation
 woorde <- gsub("^[0-9]*[\\.]*$", "", woorde)   # remove verse indent
 woorde <- unique(woorde[woorde!=""])
@@ -15,6 +15,8 @@ afkap <- gsub("=", "-", hyphenate(woorde, TRUE))
 Encoding(afkap) <- "UTF-8"
 
 altwee <- as.data.frame(list(woord=woorde, afkap=afkap))
-write.table(altwee[order(altwee$woord), ], "afkap.txt", quote = FALSE, row.names = FALSE)
+
+data.table::fwrite(altwee[order(altwee$woord), ], "afkapsb.txt", quote = FALSE,
+                   row.names = FALSE, sep = " ")
 
 
