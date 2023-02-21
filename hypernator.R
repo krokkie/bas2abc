@@ -5,16 +5,30 @@ library(hyphenatr)
 # hyphenatr::list_dicts()
 hyphenatr::switch_dict("af_ZA")
 
-load("verse.Rdata")
-woorde <- unique(tolower(unname(unlist(strsplit(unlist(Ps), " ")))))
-woorde <- gsub(",|\\.|\\?|;|!|:|\"|\\(|\\)|/", "", woorde)  # strip leestekens / punctuation
-woorde <- gsub("^[0-9]*[\\.]*$", "", woorde)   # remove verse indent
-woorde <- unique(woorde[woorde!=""])
+load("verse.Rdata")   #Ps en Sb
+load("verse-alt.Rdata") # alt$ps en alt$sb
 
-afkap <- gsub("=", "-", hyphenate(woorde, TRUE))
-Encoding(afkap) <- "UTF-8"
+vers2uniekewoorde <- function(input) {
+  woorde <- unique(tolower(unname(unlist(strsplit(unlist(input), " ")))))
+  woorde <- gsub(",|\\.|\\?|;|!|:|\"|\\(|\\)|/", "", woorde)  # strip leestekens / punctuation
+  woorde <- gsub("^[0-9]*[\\.]*$", "", woorde)   # remove verse indent
+  unique(woorde[woorde!=""])
+}
 
-altwee <- as.data.frame(list(woord=woorde, afkap=afkap))
-write.table(altwee[order(altwee$woord), ], "afkap.txt", quote = FALSE, row.names = FALSE)
+skepafkapping <- function(input, mapfilename) {
+  woorde <- vers2uniekewoorde(input)
+  afkap <- gsub("=", "-", hyphenate(woorde, TRUE))
+  Encoding(afkap) <- "UTF-8"
 
+  altwee <- as.data.frame(list(woord=woorde, afkap=afkap))
 
+  data.table::fwrite(altwee[order(altwee$woord), ], mapfilename, quote = FALSE,
+                     row.names = FALSE, sep = " ")
+  nrow(altwee)
+}
+
+skepafkapping(alt$sb, "afkapsb.txt")
+
+# now apply some manual changes to this file.....  put in the right "-"'s everywhere.
+
+# restore
