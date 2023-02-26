@@ -30,7 +30,11 @@ skepafkapping <- function(input, mapfilename) {
 applyMappingReel <- function(reel, map) {
   # reel <- woorde[[2]]
   # remove some known post chars, part of the word.
-  reel2 <- gsub(",$|\\.\\.\\.$|\\.”$|\\.\"$|\\.$|\\?$|;$|!$|!\\)$|:$|\"$|\\)$|/$", "", reel)  # strip leestekens / punctuation
+  reel2 <- gsub(",\"$|,$|\\.\\.\\.$|\\.”$|\\.\"$|\\.$|\\?$|;$|!$|!\\)$|!\"$|!”$|:$|\"$|\\)$|/$|\\.\\*\\*$|;\\*$|\"\\.$|\",$|\\?\"$", "", reel)  # strip leestekens / punctuation
+  #\\.**$|;*$|\"\\.$|\",$|\\?\"$
+
+
+
   if (any(reel2!=reel)) {
     chars <- nchar(reel) - nchar(reel2)
     postchar <- substring(reel, nchar(reel),nchar(reel)-1+chars)
@@ -51,23 +55,34 @@ applyMappingReel <- function(reel, map) {
   reellower <- tolower(reel)
 
   m <- match(reellower, map$woord)
-  if (any(errna <- is.na(m))) {
-    stop("Eina - sukkel met: ", paste0(reel, collapse=" "), "\n", paste0(reel[errna], collapse=", "))
-  }
 
   # Transform case
   afkap <- map$afkap[m]
+  if (any(afkaperr <- is.na(afkap))) {
+    guessafkap <- gsub("=", "-", hyphenate(reellower[afkaperr], TRUE))
+    altwee <- as.data.frame(list(woord=reellower[afkaperr], afkap=guessafkap))
+    warning("Woord nie in mapping file nie: ")
+    print(altwee)
+    afkap[afkaperr] <- guessafkap
+  }
+
   alllower <- reel==reellower
   potentialFirstCaps <- substr(reel, 2, nchar(reel))==substr(reellower, 2, nchar(reellower))
   FirstCaps <- !alllower & potentialFirstCaps
   afkap[FirstCaps] <- paste(substring(toupper(afkap[FirstCaps]),1,1),
                             substring(afkap[FirstCaps], 2), sep="")
 
-  if (any(errCase <- !alllower & !FirstCaps)) {
-    stop("More complicated cases than firstcaps -- ", paste0(reel[errCase], collapse = ","))
+  AllCaps <- !alllower & (toupper(reel)==reel)
+  afkap[AllCaps] <- toupper(afkap[AllCaps])
+
+  if (any(errCase <- !alllower & !FirstCaps & !AllCaps)) {
+    exceptions <- c("Skeppings-Here")
+    if (!all(reel[errCase] %in% exceptions)) {
+      stop("More complicated cases than Firstcaps and ALLCAPS -- ", paste0(reel[errCase], collapse = ","))
+    }
   }
 
-  print(paste0(prechar, afkap, postchar, collapse = " "))
+  paste0(prechar, afkap, postchar, collapse = " ")
 }
 
 applyMapping <- function(input, map) {
@@ -89,12 +104,19 @@ if (!file.exists("afkapsb.txt")) {
   # now apply some manual changes to this file.....  put in the right "-"'s everywhere.
 } else {
   map <- data.table::fread("afkapsb.txt", encoding = "UTF-8")
+  map <- rbind(map, list(woord="", afkap=""))  # empty one added
   new <- applyMapping(alt$sb, map=map)
 
+  # TODO: add check - count syllabes across all lines and verses
+
+  j <- jsonlite::toJSON(new, auto_unbox = TRUE)
+  writeLines(j, "sb-hypenated.json", useBytes = TRUE)
 }
 
-
-
-
+#.**
+#;*
+#\".
+#\",
+#?\"
 
 # restore

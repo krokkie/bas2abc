@@ -390,7 +390,7 @@ droefenis droe-fe-nis
 droefheid droef-heid
 drome dro-me
 droog droog
-droom” droom”
+droom droom
 druiwe drui-we
 druk druk
 druppel drup-pel
@@ -1642,7 +1642,7 @@ skenk skenk
 skepper skep-per
 skepperheer skep-per-heer
 skepping skep-ping
-skeppings-here skep-pings-here
+skeppings-here Skep-pings-He-re
 skeppingsdag skep-pings-dag
 skeppingsmiddelaar skep-pings-mid-de-laar
 skepsel skep-sel
