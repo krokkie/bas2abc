@@ -370,7 +370,7 @@ donkerheid don-ker-heid
 dood dood
 doodkrank dood-krank
 doodslaan dood-slaan
-doodsmag dood-smag
+doodsmag doods-mag
 doodsmart dood-smart
 doof doof
 dooie dooi-e
@@ -2221,7 +2221,7 @@ vuur vuur
 vuurvlam vuur-vlam
 vyand vy-and
 vyande vy-an-de
-vyandsmag vy-and-smag
+vyandsmag vy-ands-mag
 vyeboom vy-e-boom
 waai waai
 waak waak
