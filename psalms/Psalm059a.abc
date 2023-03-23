@@ -14,7 +14,7 @@ yyyy B2 d ^c B2 G2 A A B2 z2
 %w:words come here
 yyyy d2 d =c B A B2 ^c2 d2 z2
 %w:words come here
-yyyy b2 b b =c B A2 G2 F2 z2
+yyyy B2 B B =c B A2 G2 F2 z2
 %w:words come here
 yyyy d2 c B A c B2 A2 G2 yy |]
 %w:words come here
