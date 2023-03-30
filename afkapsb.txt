@@ -2293,7 +2293,7 @@ weggevlug weg-ge-vlug
 wegkwyn weg-kwyn
 wegwelk weg-welk
 wek wek
-welbehae wel-be-hae
+welbehae wel-be-ha-e
 weldra wel-dra
 welig we-lig
 wemel we-mel

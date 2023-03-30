@@ -283,7 +283,7 @@ begrawe be-gra-we
 begroet be-groet
 behaag be-haag
 behaaglik be-haag-lik
-behae be-hae
+behae be-ha-e
 behae-in be-hae-in
 behoed be-hoed
 behoeder be-hoe-der
@@ -4877,7 +4877,7 @@ wel wel
 w�l w�l
 w�l w�l
 welbehaaglik wel-be-haag-lik
-welbehae wel-be-hae
+welbehae wel-be-ha-e
 welbewaak wel-be-waak
 weldaad wel-daad
 weldadig wel-da-dig
