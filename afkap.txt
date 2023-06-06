@@ -2512,8 +2512,8 @@ nagtelike nag-te-li-ke
 nagwaak nag-waak
 najaarsblare na-jaars-bla-re
 nakomelinge na-ko-me-lin-ge
-nakroos nakroos
-nakroosseen nakroos-seen
+nakroos na-kroos
+nakroosseen na-kroos-seen
 nasies na-sies
 natuur na-tuur
 nee nee
