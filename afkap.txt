@@ -2608,8 +2608,8 @@ ofirland ofir-land
 og og
 olie olie
 olievlek olie-vlek
-olyfboomplante olyf-boom-plan-te
-olywe oly-we
+olyfboomplante o-lyf-boom-plan-te
+olywe o-ly-we
 om om
 �m �m
 ombring om-bring

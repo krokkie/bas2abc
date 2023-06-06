@@ -1299,7 +1299,7 @@ offerbloed of-fer-bloed
 offergloed of-fer-gloed
 offermaaltyd of-fer-maal-tyd
 offerwerk of-fer-werk
-olywe oly-we
+olywe o-ly-we
 om om
 omdat om-dat
 omega o-me-ga
